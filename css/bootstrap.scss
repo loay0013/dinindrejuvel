@@ -14,7 +14,18 @@ $custom-colors: (
  */
 
 $custom-colors: (
-        "primary": #007bff
+        "Blå1": #5E6F8B,
+        "Blå2":#252A34,
+        "Hvid":#FFFFFF,
+        "Beige":#FCF3E4,
+        "Rosa1":#D09993,
+        "Rosa2":#D4BBB3,
+        "Brun":#6E6151,
+        "Brun2":#A29079,
+        "Grøn1":#76825E,
+        "Grøn2":#9DAD7E,
+        "Gul":#DCA226
+
 );
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
