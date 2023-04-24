@@ -66,48 +66,71 @@ if(!empty($_POST["data"])) {
     <div class="row justify-content-center m-0">
         <div class="col-12 col-md-5">
             <div class="form-group m-2">
-                <label for="produkt Navn"><p class="m-0">produkt Navn</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[prodNavn]"  id="prodNavn" placeholder="prodNavn" value="">
+                <label for="Blog Overskrift"><p class="m-0">Blog Overskrift</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[blogOverskrift]"  id="blogOverskrift" placeholder="blogOverskrift" value="">
             </div>
         </div>
 
         <div class="col-12 col-md-5">
             <div class="form-group m-2">
-                <label for="produkt Navn"><p class="m-0">produkt indeholder</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[ProdText]"  id="ProdText" placeholder="ProdText" value="">
+                <label for="Blog Dato"><p class="m-0">Blog Dato</p></label>
+                <input class="form-control border-0 rounded-0" type="date" name="data[blogDato]"  id="blogDato" placeholder="Blog Dato" value="">
             </div>
         </div>
         <div class="col-12 col-md-5">
             <div class="form-group m-2">
-                <label for="produkt Pris"><p class="m-0">produkt Pris</p></label>
-                <input class="form-control border-0 rounded-0" type="number" name="data[prodPris]"  id="prodPris" placeholder="prodPris" value="">
+                <label for="blog Kategorier"><p class="m-0">Blog Kategorier</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[blogKategorier]"  id="blogKategorier" placeholder="Blog Kategorier" value="">
             </div>
         </div>
 
 
         <div class="col-12 col-md-10">
             <div class="form-group m-2">
-                <label for="prodImg"> <p class=" m-0">Img</p></label>
-                <input class="form-control border-0 rounded-0" type="file" name="prodImg"  id="prodImg" placeholder="Img" value="">
+                <label for="Blog Billede"> <p class=" m-0">Blog Billede</p></label>
+                <input class="form-control border-0 rounded-0" type="file" name="blogBillede"  id="blogBillede" placeholder="Blog Billede" value="">
             </div>
         </div>
 
-
-
+        <div class="col-12 col-md-5">
+            <div class="form-group m-2">
+                <label for="Blog Kort Tekst"><p class="m-0">Blog Kort Tekst</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[blogKortTekst]"  id="blogKortTekst" placeholder="Blog Kort Tekst" value="">
+            </div>
+        </div>
 
         <div class="col-12">
             <div class="form-group m-2">
-                <label for="produkt resume"> <p class="m-0"> produkt resume</p></label>
-                <textarea class="form-control " type="text" name="data[prodBas]"  id="prodBas" ></textarea>
+                <label for="Blog Tekst"> <p class="m-0"> Blog Tekst</p></label>
+                <textarea class="form-control " type="text" name="data[blogTekst]"  id="blogTekst" ></textarea>
             </div>
         </div>
 
+        <div class="col-12 col-md-5">
+            <div class="form-group m-2">
+                <label for="Blog Seo Titel"><p class="m-0">Blog Seo Titel</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[blogSeoTitel]"  id="blogSeoTitel" placeholder="Blog Seo Titel" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-5">
+            <div class="form-group m-2">
+                <label for="Blog Seo Description"><p class="m-0">Blog Seo Description</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[blogSeoDescription]"  id="blogSeoDescription" placeholder="Blog Seo Description" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-5">
+            <div class="form-group m-2">
+                <label for="Blog Seo Alt"><p class="m-0">Blog Seo Alt</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[blogSeoAlt]"  id="blogSeoAlt" placeholder="Blog Seo Alt" value="">
+            </div>
+        </div>
 
         <div class="col-12 col-md-6 mt-5  mb-5">
             <div class="d-flex justify-content-center">
                 <button class="form-control btn btn-primary bg-gradient rounded-0 border-0 " type="submit" id="btnsubmit">Submit</button></div>
         </div>
-
     </div>
 
 </form>
