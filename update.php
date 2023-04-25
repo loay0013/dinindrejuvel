@@ -5,11 +5,14 @@ if(!empty($_POST["data"])) {
     $file = $_FILES;
     if (!empty($file["blogBillede,productBillede1,productBillede2,productBillede3"]["tmp_name"])) {
         move_uploaded_file($file["blogBillede,productBillede1,productBillede2,productBillede3"]["tmp_name"], "uploads/" . basename($file["blogBillede,productBillede1,productBillede2,productBillede3"]["name"]));
+        if(isset($_POST["submit"])){
+            $sql = "UPDATE Blog SET blogOverskrift = value-2, blogDat = value-3, blogKategorier= value-4, blogBillede= value-5 , blogKortTekst= value-6 , blogTekst = value-7 , blogSeoTitel= value-8,blogSeoDescription= value-9, blogSeoAlt=value-10 , productBillede1= value-11, productNavn1= value-12 , productLink1 = value-13 , productBillede2 = value-14 ,productNavn2 = value-15 , productLink2= value-16 , productBillede3 = value-17 , productNavn3 = value-18 , productLink3 = value-19 WHERE BlogId =:BlogId";
+            $db->sql($sql,false);
+            $blog = $db->sql("SELECT * FROM blog WHERE BlogId =BlogId;");
+        }
+
     }
 
-    $sql = "INSERT INTO Blog (blogOverskrift, blogDato, blogKategorier, blogBillede, blogKortTekst, blogTekst, blogSeoTitel, blogSeoDescription, blogSeoAlt,productBillede1, productNavn1, productLink1,productBillede2, productNavn2, productLink2,productBillede3, productNavn3, productLink3  ) values(:blogOverskrift, :blogDato, :blogKategorier, :blogBillede, :blogKortTekst, :blogTekst, :blogSeoTitel, :blogSeoDescription, :blogSeoAlt, :productBillede1, :productNavn1, :productLink1, :productBillede2, :productNavn2, :productLink2, :productBillede3, :productNavn3, :productLink3)";
-    $bind = [":blogOverskrift" => $data["blogOverskrift"], ":blogDato" => $data["blogDato"], ":blogKategorier" => $data["blogKategorier"], ":blogKortTekst" => $data["blogKortTekst"], ":blogTekst" => $data["blogTekst"], ":blogSeoTitel" => $data["blogSeoTitel"], ":blogSeoDescription" => $data["blogSeoDescription"], ":blogSeoAlt" => $data["blogSeoAlt"],":productNavn1" => $data["productNavn1"],":productLink1" => $data["productLink1"],":productNavn2" => $data["productNavn2"],":productLink2" => $data["productLink2"],":productNavn3" => $data["productNavn3"],":productLink3" => $data["productLink3"], ":blogBillede"=>(!empty($file["blogBillede"]["tmp_name"]))? $file["blogBillede"]["name"]:NULL, ":productBillede3"=>(!empty($file["productBillede3"]["tmp_name"]))? $file["productBillede3"]["name"]:NULL, ":productBillede2"=>(!empty($file["productBillede2"]["tmp_name"]))? $file["productBillede2"]["name"]:NULL, ":productBillede1"=>(!empty($file["productBillede1"]["tmp_name"]))? $file["productBillede1"]["name"]:NULL];
-    $db->sql($sql,$bind,false);
 
 
     echo "<body style='font-size: 2rem; background-color: ;'></body>
@@ -62,7 +65,7 @@ if(!empty($_POST["data"])) {
 <!-- i <body> har man alt indhold på siden som brugeren kan se -->
 <body class="bg-kurv">
 
-<form method="post" action="insert.php" enctype="multipart/form-data">
+<form method="post" action="update.php" enctype="multipart/form-data">
 
     <div class="row justify-content-center m-0">
         <div class="col-12 col-md-5">
