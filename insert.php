@@ -3,15 +3,13 @@ require "settings/init.php";
 if(!empty($_POST["data"])) {
     $data = $_POST["data"];
     $file = $_FILES;
-    if (!empty($file["blogBillede,productBillede1, productBillede2,productBillede3"]["tmp_name"])) {
-        move_uploaded_file($file["blogBillede,productBillede1, productBillede2,productBillede3"]["tmp_name"], "uploads/" . basename($file["blogBillede,productBillede1, productBillede2,productBillede3"]["name"]));
+    if (!empty($file["blogBillede,productBillede1,productBillede2,productBillede3"]["tmp_name"])) {
+        move_uploaded_file($file["blogBillede,productBillede1,productBillede2,productBillede3"]["tmp_name"], "uploads/" . basename($file["blogBillede,productBillede1,productBillede2,productBillede3"]["name"]));
     }
 
-
-    $sql = "INSERT INTO Blog (blogOverskrift, blogDato, blogKategorier, blogBillede, blogKortTekst, blogTekst, blogSeoTitel, blogSeoDescription, blogSeoAlt,productBillede1, productNavn1, productLink1,productBillede2, productNavn2, productLink2,productBillede3, productNavn3, productLink3 ) values(:blogOverskrift, :blogDato, :blogKategorier, :blogBillede, :blogKortTekst, :blogTekst, :blogSeoTitel, :blogSeoDescription, :blogSeoAlt)";
-    $sql = "INSERT INTO produkter (productBillede1, productNavn1, productLink1,productBillede2, productNavn2, productLink2,productBillede3, productNavn3, productLink3 ) values(:productBillede1, :productNavn1, :productLink1, :productBillede2, :productNavn2, :productLink2, :productBillede3, :productNavn3, :productLink3)";
+    $sql = "INSERT INTO Blog (blogOverskrift, blogDato, blogKategorier, blogBillede, blogKortTekst, blogTekst, blogSeoTitel, blogSeoDescription, blogSeoAlt,productBillede1, productNavn1, productLink1,productBillede2, productNavn2, productLink2,productBillede3, productNavn3, productLink3  ) values(:blogOverskrift, :blogDato, :blogKategorier, :blogBillede, :blogKortTekst, :blogTekst, :blogSeoTitel, :blogSeoDescription, :blogSeoAlt, :productBillede1, :productNavn1, :productLink1, :productBillede2, :productNavn2, :productLink2, :productBillede3, :productNavn3, :productLink3)";
     $bind = [":blogOverskrift" => $data["blogOverskrift"], ":blogDato" => $data["blogDato"], ":blogKategorier" => $data["blogKategorier"], ":blogKortTekst" => $data["blogKortTekst"], ":blogTekst" => $data["blogTekst"], ":blogSeoTitel" => $data["blogSeoTitel"], ":blogSeoDescription" => $data["blogSeoDescription"], ":blogSeoAlt" => $data["blogSeoAlt"],":productNavn1" => $data["productNavn1"],":productLink1" => $data["productLink1"],":productNavn2" => $data["productNavn2"],":productLink2" => $data["productLink2"],":productNavn3" => $data["productNavn3"],":productLink3" => $data["productLink3"], ":blogBillede"=>(!empty($file["blogBillede"]["tmp_name"]))? $file["blogBillede"]["name"]:NULL, ":productBillede3"=>(!empty($file["productBillede3"]["tmp_name"]))? $file["productBillede3"]["name"]:NULL, ":productBillede2"=>(!empty($file["productBillede2"]["tmp_name"]))? $file["productBillede2"]["name"]:NULL, ":productBillede1"=>(!empty($file["productBillede1"]["tmp_name"]))? $file["productBillede1"]["name"]:NULL];
-    $db->sql($sql, $bind, false);
+    $db->sql($sql,$bind,false);
 
     echo "<body style='font-size: 2rem; background-color: ;'></body>
 
@@ -202,6 +200,8 @@ if(!empty($_POST["data"])) {
 <script>
     tinymce.init({
         selector: 'textarea',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
     });
 </script>
 

@@ -63,6 +63,17 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
                         ?>
                     </p>
 
+                    <div class="d-flex flex-column flex-md-row">
+                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede3;?>" alt="">
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row">
+                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede1;?>" alt="">
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row">
+                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede2;?>" alt="">
+                    </div>
 
 
 
