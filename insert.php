@@ -3,12 +3,14 @@ require "settings/init.php";
 if(!empty($_POST["data"])) {
     $data = $_POST["data"];
     $file = $_FILES;
-    if (!empty($file["blogBillede"]["tmp_name"])) {
-        move_uploaded_file($file["blogBillede"]["tmp_name"], "uploads/" . basename($file["blogBillede"]["name"]));
+    if (!empty($file["blogBillede,productBillede1, productBillede2,productBillede3"]["tmp_name"])) {
+        move_uploaded_file($file["blogBillede,productBillede1, productBillede2,productBillede3"]["tmp_name"], "uploads/" . basename($file["blogBillede,productBillede1, productBillede2,productBillede3"]["name"]));
     }
 
-    $sql = "INSERT INTO Blog (blogOverskrift, blogDato, blogKategorier, blogBillede, blogKortTekst, blogTekst, blogSeoTitel, blogSeoDescription, blogSeoAlt ) values(:blogOverskrift, :blogDato, :blogKategorier, :blogBillede, :blogKortTekst, :blogTekst, :blogSeoTitel, :blogSeoDescription, :blogSeoAlt )";
-    $bind = [":blogOverskrift" => $data["blogOverskrift"], ":blogDato" => $data["blogDato"], ":blogKategorier" => $data["blogKategorier"], ":blogKortTekst" => $data["blogKortTekst"], ":blogTekst" => $data["blogTekst"], ":blogSeoTitel" => $data["blogSeoTitel"], ":blogSeoDescription" => $data["blogSeoDescription"], ":blogSeoAlt" => $data["blogSeoAlt"], ":blogBillede"=>(!empty($file["blogBillede"]["tmp_name"]))? $file["blogBillede"]["name"] :NULL];
+
+    $sql = "INSERT INTO Blog (blogOverskrift, blogDato, blogKategorier, blogBillede, blogKortTekst, blogTekst, blogSeoTitel, blogSeoDescription, blogSeoAlt,productBillede1, productNavn1, productLink1,productBillede2, productNavn2, productLink2,productBillede3, productNavn3, productLink3 ) values(:blogOverskrift, :blogDato, :blogKategorier, :blogBillede, :blogKortTekst, :blogTekst, :blogSeoTitel, :blogSeoDescription, :blogSeoAlt)";
+    $sql = "INSERT INTO produkter (productBillede1, productNavn1, productLink1,productBillede2, productNavn2, productLink2,productBillede3, productNavn3, productLink3 ) values(:productBillede1, :productNavn1, :productLink1, :productBillede2, :productNavn2, :productLink2, :productBillede3, :productNavn3, :productLink3)";
+    $bind = [":blogOverskrift" => $data["blogOverskrift"], ":blogDato" => $data["blogDato"], ":blogKategorier" => $data["blogKategorier"], ":blogKortTekst" => $data["blogKortTekst"], ":blogTekst" => $data["blogTekst"], ":blogSeoTitel" => $data["blogSeoTitel"], ":blogSeoDescription" => $data["blogSeoDescription"], ":blogSeoAlt" => $data["blogSeoAlt"],":productNavn1" => $data["productNavn1"],":productLink1" => $data["productLink1"],":productNavn2" => $data["productNavn2"],":productLink2" => $data["productLink2"],":productNavn3" => $data["productNavn3"],":productLink3" => $data["productLink3"], ":blogBillede"=>(!empty($file["blogBillede"]["tmp_name"]))? $file["blogBillede"]["name"]:NULL, ":productBillede3"=>(!empty($file["productBillede3"]["tmp_name"]))? $file["productBillede3"]["name"]:NULL, ":productBillede2"=>(!empty($file["productBillede2"]["tmp_name"]))? $file["productBillede2"]["name"]:NULL, ":productBillede1"=>(!empty($file["productBillede1"]["tmp_name"]))? $file["productBillede1"]["name"]:NULL];
     $db->sql($sql, $bind, false);
 
     echo "<body style='font-size: 2rem; background-color: ;'></body>
@@ -124,6 +126,68 @@ if(!empty($_POST["data"])) {
             <div class="form-group m-2">
                 <label for="Blog Seo Alt"><p class="m-0">Blog Seo Alt</p></label>
                 <input class="form-control border-0 rounded-0" type="text" name="data[blogSeoAlt]"  id="blogSeoAlt" placeholder="Blog Seo Alt" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-10">
+            <div class="form-group m-2">
+                <label for="productBillede1"> <p class=" m-0">product Billede1</p></label>
+                <input class="form-control border-0 rounded-0" type="file" name="productBillede1"  id="productBillede1" placeholder="product Billede1" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-5">
+            <div class="form-group m-2">
+                <label for="productNavn1"><p class="m-0">product Navn1</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[productNavn1]"  id="productNavn1" placeholder="productNavn1" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-5">
+            <div class="form-group m-2">
+                <label for="productLink1"><p class="m-0">product Link1</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[productLink1]"  id="productLink1" placeholder="productLink1" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-10">
+            <div class="form-group m-2">
+                <label for="productBillede2"> <p class=" m-0">product Billede2</p></label>
+                <input class="form-control border-0 rounded-0" type="file" name="productBillede2"  id="productBillede2" placeholder="product Billede2" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-5">
+            <div class="form-group m-2">
+                <label for="productNavn2"><p class="m-0">product Navn2</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[productNavn2]"  id="productNavn2" placeholder="productNavn2" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-5">
+            <div class="form-group m-2">
+                <label for="productLink2"><p class="m-0">product Link2</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[productLink2]"  id="productLink2" placeholder="productLink2" value="">
+            </div>
+        </div>
+        <div class="col-12 col-md-10">
+            <div class="form-group m-2">
+                <label for="productBillede3"> <p class=" m-0">product Billede3</p></label>
+                <input class="form-control border-0 rounded-0" type="file" name="productBillede3"  id="productBillede3" placeholder="product Billede3" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-5">
+            <div class="form-group m-2">
+                <label for="productNavn3"><p class="m-0">product Navn3</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[productNavn3]"  id="productNavn3" placeholder="productNavn3" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-5">
+            <div class="form-group m-2">
+                <label for="productLink3"><p class="m-0">product Link3</p></label>
+                <input class="form-control border-0 rounded-0" type="text" name="data[productLink3]"  id="productLink3" placeholder="productLink3" value="">
             </div>
         </div>
 
