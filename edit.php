@@ -5,7 +5,18 @@ if(!empty($_GET["type"])){
     if($_GET["type"] == "slet"){
         $id = $_GET["id"];
         $db->sql("DELETE FROM blog WHERE BlogId =:BlogId",[":BlogId" =>$id], false);
+        header("location: edit.php");
 
+    }
+}
+
+if(!empty($_GET["type"])) {
+    if($_GET["type"] == "rediger") {
+        $id = $_GET["id"];
+
+        $db->sql("SELECT * FROM blog WHERE BlogId = :BlogId", [":BlogId"=>$BlogId], $bind);
+
+        header("location: update.php");
 
     }
 }
@@ -72,7 +83,7 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =BlogId;");
                         ?>
                     </p>
                     <div>
-                        <a href="slet.php?type=slet&id=<?php echo $blog->BlogId?>">Slet</a>
+                        <a href="edit.php?type=slet&id=<?php echo $blog->BlogId?>">Slet</a>
                     </div>
 
                     <div>

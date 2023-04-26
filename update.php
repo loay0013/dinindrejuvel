@@ -3,27 +3,28 @@ require "settings/init.php";
 if(!empty($_POST["data"])) {
     $data = $_POST["data"];
     $file = $_FILES;
-    if (!empty($file["blogBillede,productBillede1,productBillede2,productBillede3"]["tmp_name"])) {
-        move_uploaded_file($file["blogBillede,productBillede1,productBillede2,productBillede3"]["tmp_name"], "uploads/" . basename($file["blogBillede,productBillede1,productBillede2,productBillede3"]["name"]));
+
         if(isset($_POST["submit"])){
-            $sql = "UPDATE Blog SET blogOverskrift = value-2, blogDat = value-3, blogKategorier= value-4, blogBillede= value-5 , blogKortTekst= value-6 , blogTekst = value-7 , blogSeoTitel= value-8,blogSeoDescription= value-9, blogSeoAlt=value-10 , productBillede1= value-11, productNavn1= value-12 , productLink1 = value-13 , productBillede2 = value-14 ,productNavn2 = value-15 , productLink2= value-16 , productBillede3 = value-17 , productNavn3 = value-18 , productLink3 = value-19 WHERE BlogId =:BlogId";
+            $sql = "UPDATE Blog SET 
+                blogOverskrift = value-2, 
+                blogDat = value-3, 
+                blogKategorier= value-4, 
+                blogBillede= value-5 , 
+                blogKortTekst= value-6 , 
+                blogTekst = value-7 , 
+                blogSeoTitel= value-8,blogSeoDescription= value-9, blogSeoAlt=value-10 , 
+                productBillede1= value-11, productNavn1= value-12 , productLink1 = value-13 , 
+                productBillede2 = value-14 ,productNavn2 = value-15 , productLink2= value-16 , 
+                productBillede3 = value-17 , productNavn3 = value-18 , productLink3 = value-19 
+                WHERE BlogId =:BlogId";
+
             $db->sql($sql,false);
+            header('Location: update.php?type=rediger&id='.$_GET["id"]);
             $blog = $db->sql("SELECT * FROM blog WHERE BlogId =BlogId;");
         }
 
-    }
 
 
-
-    echo "<body style='font-size: 2rem; background-color: ;'></body>
-
-       <p style='color: white; text-align: center; margin-top: 20%; font-family: Raleway, sans-serif;'>Blog er nu indsat I vores system<p/>
-       <div style='display: flex; justify-content: center;'>
-       <a style='text-decoration: none' href=''>
-       <button style='font-size: 16px; font-weight: 500; color: #1e2125 cursor: pointer; display:flex; border: none; border-radius: 20px; font-family: Raleway, sans-serif; justify-content:center; padding: 10px; height: 60px; width: 200px; background-color: #F2B705FF; align-items: center'>Gå til oversigt</button></a>
-       </div>
-       ";
-    exit;
 }
 ?>
 
