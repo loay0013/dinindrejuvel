@@ -1,3 +1,13 @@
+<?php
+// Initialize the session
+session_start();
+require_once "settings/config.php";
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
 <!--select produkter fra sql-->
 <?php
 require "settings/init.php";
@@ -10,14 +20,11 @@ if(!empty($_GET["type"])){
     }
 }
 
-if(!empty($_GET["type"])) {
-    if($_GET["type"] == "rediger") {
+if(!empty($_GET["id"])) {
+    if($_GET["id"] == "rediger") {
         $id = $_GET["id"];
-
-        $db->sql("SELECT * FROM blog WHERE BlogId = :BlogId", [":BlogId"=>$BlogId], $bind);
-
+        $db->sql("SELECT * FROM blog WHERE BlogId = :BlogId", [":BlogId"=>$BlogId]);
         header("location: update.php");
-
     }
 }
 
@@ -39,7 +46,7 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =BlogId;");
     <meta charset="utf-8">
     <?php
 
-    foreach ($blog as $blog){
+    foreach ($blog as $blogs){
     ?>
     <!-- Titel som ses oppe i browserens tab mv. -->
     <title>Slet</title>
@@ -69,25 +76,25 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =BlogId;");
 
                     <p>
                         <?php
-                        echo $blog->blogDato
+                        echo $blogs->blogDato
                         ?>
                     </p>
                     <h1 class="mt-5">
                         <?php
-                        echo $blog->blogOverskrift
+                        echo $blogs->blogOverskrift
                         ?>
                     </h1>
                     <p class="mt-5">
                         <?php
-                        echo $blog->blogKortTekst
+                        echo $blogs->blogKortTekst
                         ?>
                     </p>
                     <div>
-                        <a href="edit.php?type=slet&id=<?php echo $blog->BlogId?>">Slet</a>
+                        <a href="edit.php?type=slet&id=<?php echo $blogs->BlogId?>">Slet</a>
                     </div>
 
                     <div>
-                        <a href="update.php?type=rediger&id=<?php echo $blog->BlogId?>">Rediger</a>
+                        <a href="update.php?type=rediger&id=<?php echo $blogs->BlogId?>">Rediger</a>
                     </div>
 
                     <?php
