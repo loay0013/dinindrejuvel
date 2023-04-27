@@ -1,8 +1,32 @@
-<?php
-require "settings/init.php";
+<!DOCTYPE html>
+<html lang="da">
+<head>
+	<meta charset="utf-8">
 
-$blogs = $db->sql("SELECT * FROM blogs");
+	<title>Sigende titel</title>
 
-foreach ($blogs as $blog){
-    echo $blog->blogName . "<br>";
-}
+	<meta name="robots" content="All">
+	<meta name="author" content="Udgiver">
+	<meta name="copyright" content="Information om copyright">
+
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<!--navbar-->
+<?php include "includes/nav.php"?>
+
+
+
+
+
+
+<!--footer-->
+<?php include "includes/footer.php"?>
+<!--bootstrap js script-->
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -4,7 +4,6 @@
 
 body {
 	font-family: Lato, sans-serif;
-	margin: 0 20px 0 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -62,4 +61,18 @@ img {
 	display: block;
 	max-width: 100%;
 	height: auto;
+}
+.nav-link{
+	color: #FCF3E4;
+	font-size: 16px;
+	font-weight:500;
+}
+.navbar{
+	height: 85px;
+}
+.w-search{
+	width: 275px;
+}
+.h-footer{
+	height: 420px;
 }

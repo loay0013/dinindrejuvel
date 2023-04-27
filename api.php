@@ -42,6 +42,18 @@ if($data["password"]== "1717"){
         $bind[":blogOverskrift"]=$data["blogOverskrift"];
     }
 
+    if(!empty($data["SeoTitelSearch"])) {
+        $sql .= " OR blogSeoTitel LIKE CONCAT('%', :blogSeoTitel, '%')";
+        $bind[":blogSeoTitel"] = $data["SeoTitelSearch"];
+    }
+
+    if(!empty($data["KategorierSearch"])) {
+        $sql .= " OR blogKategorier LIKE CONCAT('%', :blogKategorier, '%')";
+        $bind[":blogKategorier"] = $data["KategorierSearch"];
+    }
+
+
+
     $blog = $db->sql($sql, $bind);
     header("HTTP/1.1 200 ok");
     echo json_encode($blog);
