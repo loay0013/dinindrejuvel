@@ -76,3 +76,25 @@ img {
 .h-footer{
 	height: 420px;
 }
+.w-text{
+	width: fit-content;
+}
+.wh-img{
+	width: 260px;
+	height: 220px;
+	object-fit: cover;
+}
+@media  screen and (max-width: 1000px){
+	.wh-img{
+		width: auto;
+		object-fit: cover;
+		height: auto;
+	}
+}
+
+
+@media  screen and (max-width: 768px) {
+	.h-footer{
+		height: 800px;
+	}
+}

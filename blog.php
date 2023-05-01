@@ -29,57 +29,72 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
-
+    <meta name="description" content="<?php echo $blog->blogSeoDescription?>">
     <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-
     <!-- Sikrer den vises korrekt på mobil, tablet mv. ved at tage ift. skærmstørrelse - bliver brugt til responsive websider -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <!-- i <body> har man alt indhold på siden som brugeren kan se -->
 <body>
-<!-- Her skal sidens indhold ligge -->
-<div class="d-flex justify-content-center flex-column">
 
-    <div class="bg-kurv">
-        <div class="row gx-0 d-flex flex-column flex-md-row">
-            <!--img-->
-            <div class="d-flex flex-column flex-md-row">
-                <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->blogBillede;?>" alt="<?php echo $blog->blogSeoAlt;?>">
-            </div>
-            <!--produktNavn og produktbeskrivelse-->
-            <div class="col-12 col-md-6 d-flex align-items-center ">
-                <div class="mx-4 mx-md-5">
-                    <h1 class="mt-5">
+<!-- Her skal sidens indhold ligge -->
+<?php include "includes/nav.php"?>
+    <div class="bg-Beige">
+            <div class="d-flex flex-column align-items-center container ">
+                    <p class="mt-5">
+                        <?php
+                        echo $blog->blogDato
+                        ?>
+
+                    </p>
+                    <h1 class="mt-3 ">
                         <?php
                         echo $blog->blogOverskrift
                         ?>
                     </h1>
-
-                    <p class="fs-4 mt-3 mb-3">
+                    <div class="d-flex mt-3 justify-content-center">
+                        <img class="w-50" src="uploads/<?php echo $blog->blogBillede;?>" alt="<?php echo $blog->blogSeoAlt;?>">
+                    </div>
+                <div class="mt-5 mb-5">
+                    <p>
                         <?php
                         echo $blog->blogTekst
                         ?>
                     </p>
-
-                    <div class="d-flex flex-column flex-md-row">
-                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede3;?>" alt="">
+                </div>
+                <div class="d-flex flex-md-row  flex-column">
+                    <div class="d-flex flex-column mb-5">
+                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede1;?>" alt="<?php echo $blog->productBillede1;?>">
+                        <p><?php echo $blog->productNavn1;?></p>
+                        <button class="rounded-5 bg-Gul text-Beige border-0 d-flex w-text mt-4 p-1 px-4">Gå til webshop
+                            <a href="<?php echo $blog->productLink1;?>"></a>
+                            <img class="pt-1 ps-2" src="img/arrowup 2.svg"  alt="arrowup">
+                        </button>
                     </div>
 
-                    <div class="d-flex flex-column flex-md-row">
-                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede1;?>" alt="">
+                    <div class="d-flex flex-column mb-5">
+                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede2;?>" alt="<?php echo $blog->productBillede2;?>">
+                        <p><?php echo $blog->productNavn2;?></p>
+                        <button class="rounded-5 bg-Gul text-Beige border-0 d-flex w-text  mt-4 p-1 px-4">Gå til webshop
+                            <a href="<?php echo $blog->productLink2;?>"></a>
+                            <img class="pt-1 ps-2" src="img/arrowup 2.svg"  alt="arrowup">
+                        </button>
                     </div>
 
-                    <div class="d-flex flex-column flex-md-row">
-                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede2;?>" alt="">
+                    <div class="d-flex flex-column mb-5">
+                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede3;?>" alt="<?php echo $blog->productBillede3;?>">
+                        <p><?php echo $blog->productNavn3;?></p>
+                        <button class="rounded-5 bg-Gul text-Beige border-0 d-flex w-text  mt-4 p-1 px-4">Gå til webshop
+                            <a href="<?php echo $blog->productLink3;?>"></a>
+                            <img class="pt-1 ps-2" src="img/arrowup 2.svg"  alt="arrowup">
+                        </button>
                     </div>
-
-
-
-
-
-
+                </div>
+            </div>
+        </div>
 
 
 <?php
@@ -87,6 +102,11 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
 ?>
 
 
+<?php include "includes/footer.php"?>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>
+
+

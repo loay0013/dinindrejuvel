@@ -21,22 +21,25 @@ export default class blogs{
 
         for(const  items of data){
             const col = document.createElement('div');
-            col.classList.add('col-12', 'col-md-6', 'rounded-4','mb-5');
+            col.classList.add('col-12', 'rounded-4','mb-5');
 
             col.innerHTML= `
            
-            <div class="col-12">
-            <div class="card h-100 shadow border-0">
-            <a  href="blog.php?BlogId=${items.BlogId}" class="text-decoration-none text-dark">
+            <div class="col-12 container">
+            <div class=" flex-row border-0">
+            <a  href="blog.php?BlogId=${items.BlogId}" class="text-decoration-none text-dark d-md-flex ">
                <div>
-                    <img src ="uploads/${items.blogBillede}" class="card-img-top img-fluid obj1" alt="">
+                    <img src ="uploads/${items.blogBillede}" class="flex-md-row rounded-2 wh-img"  alt="${items.blogSeoAlt}">
                </div>
                        
           
-                <div class="bg-box-p rounded-bottom">
-                     <h2 class="p-2 text-light text-center">${items.blogOverskrift}</h2> 
-                     <p class="text-light text-center">${items.blogDato}</p>
-                     <p class="text-light text-center">${items.blogKortTekst}</p>
+                <div class="rounded-bottom d-flex flex-column ">
+                     <h2 class="text-Blå2 mt-1 mx-4 ">${items.blogOverskrift}</h2> 
+                     <p class="text-Blå2 mt-2 mx-4">${items.blogDato}</p>
+                     <p class="text-Blå2 mt-5 mx-4">${items.blogKortTekst}</p>
+                     <button class="rounded-5 bg-Gul text-Beige border-0 d-flex w-text mx-4 mt-4 p-1 px-4">Læse mere
+                     <img class="pt-1 ps-2" src="img/arrowup 2.svg"  alt="arrowup">
+                     </button>
                 </div>
             </div>
             </a>

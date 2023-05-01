@@ -15,16 +15,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
+<body class="bg-Beige">
 <!--navbar-->
 <?php include "includes/nav.php"?>
 
-<h1 class="text-center p-5">
+<h1 class="text-center p-5 mb-5 mt-5 ">
     Læs en masse spændende blogindlæg
 </h1>
 <!--container til produkter-->
-<div class="container col-xl-6 w-md-50 rounded-2">
-    <div class=" w-md-50 container">
+<div class="container flex-row">
+    <div class="container">
         <div class="blogs">
             <div class="items">
             </div>
