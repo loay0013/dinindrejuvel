@@ -1,13 +1,4 @@
-<?php
-// Initialize the session
-session_start();
 
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-}
-?>
 <?php
 require "settings/init.php";
 $data = json_decode(file_get_contents('php://input'), true);
@@ -38,7 +29,7 @@ if($data["password"]== "1717"){
 
 
     if (!empty($data["nameSearch"])){
-        $sql ="AND blogOverskrift =blogOverskrift";
+        $sql ="AND blogOverskrift LIKE CONCAT('%',:blogOverskrift,'%')";
         $bind[":blogOverskrift"]=$data["blogOverskrift"];
     }
 
@@ -47,12 +38,10 @@ if($data["password"]== "1717"){
         $bind[":blogSeoTitel"] = $data["SeoTitelSearch"];
     }
 
-    if(!empty($data["KategorierSearch"])) {
-        $sql .= " OR blogKategorier LIKE CONCAT('%', :blogKategorier, '%')";
-        $bind[":blogKategorier"] = $data["KategorierSearch"];
+    if(!empty($data["KategorierSearch"])){
+        $sql .=" AND KategorierSearch  >= :KategorierSearch";
+        $bind[":KategorierSearch"]= $data["KategorierSearch"];
     }
-
-
 
     $blog = $db->sql($sql, $bind);
     header("HTTP/1.1 200 ok");

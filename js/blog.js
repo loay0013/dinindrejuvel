@@ -7,10 +7,14 @@ export default class blogs{
 
         this.rootElem = document.querySelector('.blogs');
         this.items = this.rootElem.querySelector('.items');
-
+        this.filter = this.rootElem.querySelector('.filter');
+        this.KategorierSearch = this.filter.querySelector('.KategorierSearch');
     }
 
     async init(){
+        this.KategorierSearch.addEventListener('input',()=>{
+            this.render();
+        });
         await this.render();
     }
     async render() {
@@ -55,6 +59,9 @@ export default class blogs{
 
 
     async getData(){
+
+        this.data.KategorierSearch= this.KategorierSearch.value;
+
         const response = await fetch('api.php', {
             method:"POST",
             body: JSON.stringify(this.data)

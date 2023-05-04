@@ -20,14 +20,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Check if username is empty
     if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter username.";
+        $username_err = "Indtast venligst brugernavn.";
     } else{
         $username = trim($_POST["username"]);
     }
 
     // Check if password is empty
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter your password.";
+        $password_err = "Indtast venligst dit kodeord.";
     } else{
         $password = trim($_POST["password"]);
     }
@@ -67,15 +67,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             header("location: welcome.php");
                         } else{
                             // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password.";
+                            $login_err = "Ugyldigt brugernavn eller kodeord.";
                         }
                     }
                 } else{
                     // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password.";
+                    $login_err = "Ugyldigt brugernavn eller kodeord.";
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Ups! Noget gik galt. Prøv igen senere.";
             }
 
             // Close statement
@@ -89,20 +89,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
-    </style>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-<div class="wrapper">
-    <h2>Login</h2>
-    <p>Please fill in your credentials to login.</p>
+<body class="bg-Beige">
+<div class="d-flex justify-content-center container p-5">
+    <img class="w-50" src="img/dijlogonavbarb.png" alt="logo">
+</div>
+
+<div class="wrapper d-flex flex-column col-12 container align-items-center">
+    <h2 class="m-3">Login</h2>
+    <p class="m-3">Udfyld venligst dine oplysninger for at logge ind.</p>
 
     <?php
     if(!empty($login_err)){
@@ -111,20 +113,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     ?>
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div class="form-group">
-            <label>Username</label>
-            <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+        <div class="form-group m-3">
+            <label>Brugernavn</label>
+            <input  type="text" name="username" class="form-control w-400 <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
             <span class="invalid-feedback"><?php echo $username_err; ?></span>
         </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+        <div class="form-group m-3">
+            <label>Adgangskode</label>
+            <input type="password" name="password" class="form-control w-400  <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
             <span class="invalid-feedback"><?php echo $password_err; ?></span>
         </div>
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Login">
+        <div class="form-group m-3">
+            <input type="submit" class="btn btn-Gul" value="Login">
         </div>
-        <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
     </form>
 </div>
 </body>

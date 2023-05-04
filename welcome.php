@@ -10,20 +10,35 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body{ font: 14px sans-serif; text-align: center; }
-    </style>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-<h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
-<p>
-    <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-    <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-</p>
+<body class="bg-Beige">
+<div class="d-flex justify-content-center container p-5">
+    <img class="w-50" src="img/dijlogonavbarb.png" alt="logo">
+</div>
+
+<h1 class="my-5 text-center">Hej <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b> til din indre juvel system</h1>
+
+<div class="d-flex justify-content-center container ">
+    <div class="d-flex justify-content-center">
+        <a href="edit.php">
+            <button class="rounded-5 bg-Gul text-Beige border-0 px-5 py-2 m-3">blog</button>
+        </a>
+    </div>
+    <div class="d-flex justify-content-center">
+        <a href="insert.php">
+            <button class="rounded-5 bg-Gul text-Beige border-0 px-5 py-2 m-3">Ny Blog</button>
+        </a>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center" >
+    <a href="logout.php" class="btn btn-danger ml-3">Log ud</a>
+</div>
 </body>
 </html>

@@ -16,7 +16,7 @@ if(!empty($_POST["data"])) {
         $sql = "UPDATE Blog SET
             blogOverskrift =:blogOverskrift, 
             blogDato =:blogDato, 
-            blogKategorier=:blogKategorier, 
+            blogKategorierId=:blogKategorierId, 
             blogBillede= :blogBillede, 
             blogKortTekst= :blogKortTekst, 
             blogTekst = :blogTekst, 
@@ -38,7 +38,7 @@ if(!empty($_POST["data"])) {
         ":BlogId" => $_GET["id"],
         ":blogOverskrift" => $data["blogOverskrift"],
         ":blogDato" => $data["blogDato"],
-        ":blogKategorier" => $data["blogKategorier"],
+        ":blogKategorierId" => $data["blogKategorierId"],
         ":blogKortTekst" => $data["blogKortTekst"],
         ":blogTekst" => $data["blogTekst"],
         ":blogSeoTitel" => $data["blogSeoTitel"],
@@ -94,139 +94,184 @@ $blogs = $db->sql("SELECT * FROM blog WHERE BlogId = :BlogId", $bind);
 </head>
 
 <!-- i <body> har man alt indhold på siden som brugeren kan se -->
-<body class="bg-kurv">
+<body class="bg-Beige mx-14">
+<div class="d-flex justify-content-center container p-5">
+    <img class="w-50" src="img/dijlogonavbarb.png" alt="logo">
+</div>
+
+<div class="d-flex justify-content-end container ">
+    <div class="d-flex justify-content-center">
+        <a href="blogoversigt.php">
+            <button class="rounded-5 bg-Gul text-Beige border-0 px-5 py-2 m-3">blog</button>
+        </a>
+    </div>
+    <div class="d-flex justify-content-center">
+        <a href="edit.php">
+            <button class="rounded-5 bg-Gul text-Beige border-0 px-5 py-2 m-3">Edit</button>
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-end container m-3" >
+        <a  href="logout.php" class="btn btn-danger">Log ud</a>
+    </div>
+</div>
 
 <form method="post" action="update.php?id=<?php echo $_GET['id'];?>" enctype="multipart/form-data">
 
     <div class="row justify-content-center m-0">
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="Blog Overskrift"><p class="m-0">Blog Overskrift</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[blogOverskrift]"  id="blogOverskrift" placeholder="blogOverskrift" value="<?php echo (!empty($blogs[0]->blogOverskrift)) ? $blogs[0]->blogOverskrift : ""; ?>">
+       <div class="bg-Grøn1 m-5 p-5 rounded-4">
+            <div>
+                <h4 class="text-center m-4">
+                    Ny Blog
+                </h4>
             </div>
-        </div>
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="Blog Overskrift"><p class="m-0">Blog Overskrift</p></label>
+                    <input class="form-control border-0 rounded-0" type="text" name="data[blogOverskrift]"  id="blogOverskrift" placeholder="blogOverskrift" value="<?php echo (!empty($blogs[0]->blogOverskrift)) ? $blogs[0]->blogOverskrift : ""; ?>">
+                </div>
+            </div>
 
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="Blog Dato"><p class="m-0">Blog Dato</p></label>
-                <input class="form-control border-0 rounded-0" type="date" name="data[blogDato]"  id="blogDato" placeholder="Blog Dato" value="<?php echo (!empty($blogs[0]->blogDato)) ? $blogs[0]->blogDato : ""; ?>">
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="Blog Dato"><p class="m-0">Blog Dato</p></label>
+                    <input class="form-control border-0 rounded-0" type="date" name="data[blogDato]"  id="blogDato" placeholder="Blog Dato" value="<?php echo (!empty($blogs[0]->blogDato)) ? $blogs[0]->blogDato : ""; ?>">
+                </div>
             </div>
-        </div>
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="blog Kategorier"><p class="m-0">Blog Kategorier</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[blogKategorier]"  id="blogKategorier" placeholder="Blog Kategorier" value="<?php echo (!empty($blogs[0]->blogKategorier)) ? $blogs[0]->blogKategorier : ""; ?>">
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="blog Kategorier"><p class="m-0">Blog Kategorier</p></label>
+                    <select name="data[blogKategorierId]" id="blogKategorierId" value="<?php echo (!empty($blogs[0]->blogKategorier)) ? $blogs[0]->blogKategorier : ""; ?>">
+                        <option value="0">blogKategorier</option>
+                        <option value="1">SMUDGING</option>
+                        <option value="2">RØGELSESPINDE</option>
+                        <option value="3">KRYSTALLER</option>
+                        <option value="4">SALVIE</option>
+                        <option value="5">LIVSSTIL</option>
+                    </select>
+                </div>
             </div>
-        </div>
 
 
-        <div class="col-12 col-md-10">
-            <div class="form-group m-2">
-                <label for="Blog Billede"> <p class=" m-0">Blog Billede</p></label>
-                <input class="form-control border-0 rounded-0" type="file" name="blogBillede"  id="blogBillede" placeholder="Blog Billede" value="<?php echo (!empty($blogs[0]->blogBillede)) ? $blogs[0]->blogBillede : ""; ?>" required>
+            <div class="col-12 col-md-10">
+                <div class="form-group m-2">
+                    <label for="Blog Billede"> <p class=" m-0">Blog Billede</p></label>
+                    <input class="form-control border-0 rounded-0" type="file" name="blogBillede"  id="blogBillede" placeholder="Blog Billede" value="<?php echo (!empty($blogs[0]->blogBillede)) ? $blogs[0]->blogBillede : ""; ?>" required>
+                </div>
             </div>
-        </div>
 
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="Blog Kort Tekst"><p class="m-0">Blog Kort Tekst</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[blogKortTekst]"  id="blogKortTekst" placeholder="Blog Kort Tekst" value="<?php echo (!empty($blogs[0]->blogKortTekst)) ? $blogs[0]->blogKortTekst : ""; ?>">
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="Blog Kort Tekst"><p class="m-0">Blog Kort Tekst</p></label>
+                    <input class="form-control border-0 rounded-0" type="text" name="data[blogKortTekst]"  id="blogKortTekst" placeholder="Blog Kort Tekst" value="<?php echo (!empty($blogs[0]->blogKortTekst)) ? $blogs[0]->blogKortTekst : ""; ?>">
+                </div>
             </div>
-        </div>
 
-        <div class="col-12">
-            <div class="form-group m-2">
-                <label for="Blog Tekst"> <p class="m-0"> Blog Tekst</p></label>
-                <textarea class="form-control " type="text" name="data[blogTekst]"  id="blogTekst"  ><?php echo (!empty($blogs[0]->blogTekst)) ? $blogs[0]->blogTekst : ""; ?></textarea>
+            <div class="col-12">
+                <div class="form-group m-2">
+                    <label for="Blog Tekst"> <p class="m-0"> Blog Tekst</p></label>
+                    <textarea class="form-control " type="text" name="data[blogTekst]"  id="blogTekst"  ><?php echo (!empty($blogs[0]->blogTekst)) ? $blogs[0]->blogTekst : ""; ?></textarea>
+                </div>
             </div>
-        </div>
+       </div>
+        <div class="bg-Grøn1 m-5 p-5 rounded-4">
+            <div>
+                <h4 class="text-center m-4">
+                    Blog SEO
+                </h4>
+            </div>
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="Blog Seo Titel"><p class="m-0">Blog Seo Titel</p></label>
+                    <input class="form-control border-0 rounded-0" type="text" name="data[blogSeoTitel]"  id="blogSeoTitel" placeholder="Blog Seo Titel" value="<?php echo (!empty($blogs[0]->blogSeoTitel)) ? $blogs[0]->blogSeoTitel : ""; ?>">
+                </div>
+            </div>
 
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="Blog Seo Titel"><p class="m-0">Blog Seo Titel</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[blogSeoTitel]"  id="blogSeoTitel" placeholder="Blog Seo Titel" value="<?php echo (!empty($blogs[0]->blogSeoTitel)) ? $blogs[0]->blogSeoTitel : ""; ?>">
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="Blog Seo Description"><p class="m-0">Blog Seo Description</p></label>
+                    <input class="form-control border-0 rounded-0" type="text" name="data[blogSeoDescription]"  id="blogSeoDescription" placeholder="Blog Seo Description" value="<?php echo (!empty($blogs[0]->blogSeoDescription)) ? $blogs[0]->blogSeoDescription : ""; ?>">
+                </div>
             </div>
-        </div>
 
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="Blog Seo Description"><p class="m-0">Blog Seo Description</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[blogSeoDescription]"  id="blogSeoDescription" placeholder="Blog Seo Description" value="<?php echo (!empty($blogs[0]->blogSeoDescription)) ? $blogs[0]->blogSeoDescription : ""; ?>">
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="Blog Seo Alt"><p class="m-0">Blog Seo Alt</p></label>
+                    <input class="form-control border-0 rounded-0" type="text" name="data[blogSeoAlt]"  id="blogSeoAlt" placeholder="Blog Seo Alt" value="<?php echo (!empty($blogs[0]->blogSeoAlt)) ? $blogs[0]->blogSeoAlt : ""; ?>">
+                </div>
             </div>
         </div>
+        <div class="bg-Grøn1 m-5 p-5 rounded-4">
+            <div>
+                <h4 class="text-center m-4">
+                    Blog product
+                </h4>
+            </div>
+            <div class="col-12 col-md-10">
+                <div class="form-group m-2">
+                    <label for="productBillede1"> <p class=" m-0">product Billede1</p></label>
+                    <input class="form-control border-0 rounded-0" type="file" name="productBillede1"  id="productBillede1" placeholder="product Billede1" value="<?php echo (!empty($blogs[0]->productBillede1)) ? $blogs[0]->productBillede1 : ""; ?>" required>
+                </div>
+            </div>
 
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="Blog Seo Alt"><p class="m-0">Blog Seo Alt</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[blogSeoAlt]"  id="blogSeoAlt" placeholder="Blog Seo Alt" value="<?php echo (!empty($blogs[0]->blogSeoAlt)) ? $blogs[0]->blogSeoAlt : ""; ?>">
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="productNavn1"><p class="m-0">product Navn1</p></label>
+                    <input class="form-control border-0 rounded-0" type="text" name="data[productNavn1]"  id="productNavn1" placeholder="productNavn1" value="<?php echo (!empty($blogs[0]->productNavn1)) ? $blogs[0]->productNavn1 : ""; ?>">
+                </div>
             </div>
-        </div>
 
-        <div class="col-12 col-md-10">
-            <div class="form-group m-2">
-                <label for="productBillede1"> <p class=" m-0">product Billede1</p></label>
-                <input class="form-control border-0 rounded-0" type="file" name="productBillede1"  id="productBillede1" placeholder="product Billede1" value="<?php echo (!empty($blogs[0]->productBillede1)) ? $blogs[0]->productBillede1 : ""; ?>" required>
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="productLink1"><p class="m-0">product Link1</p></label>
+                    <input class="form-control border-0 rounded-0" type="text" name="data[productLink1]"  id="productLink1" placeholder="productLink1" value="<?php echo (!empty($blogs[0]->productLink1)) ? $blogs[0]->productLink1 : ""; ?>">
+                </div>
             </div>
-        </div>
 
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="productNavn1"><p class="m-0">product Navn1</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[productNavn1]"  id="productNavn1" placeholder="productNavn1" value="<?php echo (!empty($blogs[0]->productNavn1)) ? $blogs[0]->productNavn1 : ""; ?>">
+            <div class="col-12 col-md-10">
+                <div class="form-group m-2">
+                    <label for="productBillede2"> <p class=" m-0">product Billede2</p></label>
+                    <input class="form-control border-0 rounded-0" type="file" name="productBillede2"  id="productBillede2" placeholder="product Billede2" value="<?php echo (!empty($blogs[0]->productBillede2)) ? $blogs[0]->productBillede2 : ""; ?>" required>
+                </div>
             </div>
-        </div>
 
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="productLink1"><p class="m-0">product Link1</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[productLink1]"  id="productLink1" placeholder="productLink1" value="<?php echo (!empty($blogs[0]->productLink1)) ? $blogs[0]->productLink1 : ""; ?>">
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="productNavn2"><p class="m-0">product Navn2</p></label>
+                    <input class="form-control border-0 rounded-0" type="text" name="data[productNavn2]"  id="productNavn2" placeholder="productNavn2" value="<?php echo (!empty($blogs[0]->productNavn2)) ? $blogs[0]->productNavn2 : ""; ?>">
+                </div>
             </div>
-        </div>
 
-        <div class="col-12 col-md-10">
-            <div class="form-group m-2">
-                <label for="productBillede2"> <p class=" m-0">product Billede2</p></label>
-                <input class="form-control border-0 rounded-0" type="file" name="productBillede2"  id="productBillede2" placeholder="product Billede2" value="<?php echo (!empty($blogs[0]->productBillede2)) ? $blogs[0]->productBillede2 : ""; ?>" required>
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="productLink2"><p class="m-0">product Link2</p></label>
+                    <input class="form-control border-0 rounded-0" type="text" name="data[productLink2]"  id="productLink2" placeholder="productLink2" value="<?php echo (!empty($blogs[0]->productLink2)) ? $blogs[0]->productLink2 : ""; ?>">
+                </div>
             </div>
-        </div>
+            <div class="col-12 col-md-10">
+                <div class="form-group m-2">
+                    <label for="productBillede3"> <p class=" m-0">product Billede3</p></label>
+                    <input class="form-control border-0 rounded-0" type="file" name="productBillede3"  id="productBillede3" placeholder="product Billede3" value="<?php echo (!empty($blogs[0]->productBillede3)) ? $blogs[0]->productBillede3 : ""; ?>" required>
+                </div>
+            </div>
 
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="productNavn2"><p class="m-0">product Navn2</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[productNavn2]"  id="productNavn2" placeholder="productNavn2" value="<?php echo (!empty($blogs[0]->productNavn2)) ? $blogs[0]->productNavn2 : ""; ?>">
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="productNavn3"><p class="m-0">product Navn3</p></label>
+                    <input class="form-control border-0 rounded-0" type="text" name="data[productNavn3]"  id="productNavn3" placeholder="productNavn3" value="<?php echo (!empty($blogs[0]->productNavn3)) ? $blogs[0]->productNavn3 : ""; ?>">
+                </div>
             </div>
-        </div>
 
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="productLink2"><p class="m-0">product Link2</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[productLink2]"  id="productLink2" placeholder="productLink2" value="<?php echo (!empty($blogs[0]->productLink2)) ? $blogs[0]->productLink2 : ""; ?>">
-            </div>
-        </div>
-        <div class="col-12 col-md-10">
-            <div class="form-group m-2">
-                <label for="productBillede3"> <p class=" m-0">product Billede3</p></label>
-                <input class="form-control border-0 rounded-0" type="file" name="productBillede3"  id="productBillede3" placeholder="product Billede3" value="<?php echo (!empty($blogs[0]->productBillede3)) ? $blogs[0]->productBillede3 : ""; ?>" required>
-            </div>
-        </div>
-
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="productNavn3"><p class="m-0">product Navn3</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[productNavn3]"  id="productNavn3" placeholder="productNavn3" value="<?php echo (!empty($blogs[0]->productNavn3)) ? $blogs[0]->productNavn3 : ""; ?>">
-            </div>
-        </div>
-
-        <div class="col-12 col-md-5">
-            <div class="form-group m-2">
-                <label for="productLink3"><p class="m-0">product Link3</p></label>
-                <input class="form-control border-0 rounded-0" type="text" name="data[productLink3]"  id="productLink3" placeholder="productLink3" value="<?php echo (!empty($blogs[0]->productLink3)) ? $blogs[0]->productLink3 : ""; ?>">
+            <div class="col-12 col-md-5">
+                <div class="form-group m-2">
+                    <label for="productLink3"><p class="m-0">product Link3</p></label>
+                    <input class="form-control border-0 rounded-0" type="text" name="data[productLink3]"  id="productLink3" placeholder="productLink3" value="<?php echo (!empty($blogs[0]->productLink3)) ? $blogs[0]->productLink3 : ""; ?>">
+                </div>
             </div>
         </div>
 
         <div class="btn-container d-flex justify-content-center my-4">
-            <a href="index.php"><button class="btn btn-cancel btn-lg text-white mx-3">nej</button></a>
-            <button class="btn btn-primary btn-lg text-white mx-3" type="submit" id="btnSubmit">update</i></button>
+            <button class=" btn d-flex rounded-5 bg-Gul text-Beige border-0" type="submit" id="btnSubmit">update</button>
         </div>
     </div>
 
@@ -235,25 +280,10 @@ $blogs = $db->sql("SELECT * FROM blog WHERE BlogId = :BlogId", $bind);
 <script>
     tinymce.init({
         selector: 'textarea',
-        cleanup_on_startup : true,
-        fix_list_elements : false,
-        fix_nesting : false,
-        fix_table_elements : false,
-        paste_use_dialog : true,
-        paste_auto_cleanup_on_paste : true,
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
     });
 </script>
-<script>
-    const confirmModal = document.querySelector('.modal');
-    if(confirmModal){
-        const bsModal = new bootstrap.Modal(confirmModal, {keyboard: false});
-        bsModal.show();
 
-        confirmModal.addEventListener('hide.bs.modal', () => {
-            document.location = "index.php";
-        })
-    }
-
-</script>
 </body>
 </html>

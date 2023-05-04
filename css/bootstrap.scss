@@ -24,7 +24,8 @@ $custom-colors: (
         "Brun2":#A29079,
         "Grøn1":#76825E,
         "Grøn2":#9DAD7E,
-        "Gul":#DCA226
+        "Gul":#DCA226,
+        "red":#D13800
 
 );
 $theme-colors: map-merge($theme-colors, $custom-colors);

@@ -31,7 +31,7 @@ if(!empty($_POST["data"])) {
     $sql = "INSERT INTO Blog (
                   blogOverskrift,
                   blogDato, 
-                  blogKategorier, 
+                  blogKategorierId, 
                   blogBillede, blogKortTekst, 
                   blogTekst, blogSeoTitel, 
                   blogSeoDescription, 
@@ -41,7 +41,7 @@ if(!empty($_POST["data"])) {
                   productBillede3, productNavn3, productLink3) 
             values(:blogOverskrift, 
                    :blogDato, 
-                   :blogKategorier, 
+                   :blogKategorierId, 
                    :blogBillede, 
                    :blogKortTekst,  :blogTekst,   
                    :blogSeoDescription, :blogSeoAlt, :blogSeoTitel, 
@@ -51,7 +51,7 @@ if(!empty($_POST["data"])) {
     $bind = [
             ":blogOverskrift" => $data["blogOverskrift"],
             ":blogDato" => $data["blogDato"],
-            ":blogKategorier" => $data["blogKategorier"],
+            ":blogKategorierId" => $data["blogKategorierId"],
             ":blogKortTekst" => $data["blogKortTekst"],
             ":blogTekst" => $data["blogTekst"],
             ":blogSeoTitel" => $data["blogSeoTitel"],
@@ -67,12 +67,12 @@ if(!empty($_POST["data"])) {
     $db->sql($sql,$bind,false);
 
 
-    echo "<body style='font-size: 2rem; background-color: ;'></body>
+    echo "<body style='font-size: 2rem; background-color:#FCF3E4 ;'></body>
 
-       <p style='color: white; text-align: center; margin-top: 20%; font-family: Raleway, sans-serif;'>Blog er nu indsat I vores system<p/>
+       <p style='color:#252A34; text-align: center; margin-top: 20%; font-family: Lato, sans-serif;'>Blog er nu indsat I vores system<p/>
        <div style='display: flex; justify-content: center;'>
-       <a style='text-decoration: none' href=''>
-       <button style='font-size: 16px; font-weight: 500; color: #1e2125 cursor: pointer; display:flex; border: none; border-radius: 20px; font-family: Raleway, sans-serif; justify-content:center; padding: 10px; height: 60px; width: 200px; background-color: #F2B705FF; align-items: center'>Gå til oversigt</button></a>
+       <a style='text-decoration: none' href='edit.php'>
+       <button style='font-size: 16px; font-weight: 500; color: #252A34 cursor: pointer; display:flex; border: none; border-radius: 20px; font-family: Lato, sans-serif; justify-content:center; padding: 10px; height: 60px; width: 200px; background-color: #DCA226; align-items: center'>Gå til oversigt</button></a>
        </div>
        ";
     exit;
@@ -90,33 +90,29 @@ if(!empty($_POST["data"])) {
 <head>
     <!-- Sætter tegnsætning til utf-8 som bl.a. tillader danske bogstaver -->
     <meta charset="utf-8">
-
     <!-- Titel som ses oppe i browserens tab mv. -->
     <title>indsat Blog</title>
-
     <!-- Metatags der fortæller at søgemaskiner er velkomne, hvem der udgiver siden og copyright information -->
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
-
     <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-
     <!-- Sikrer den vises korrekt på mobil, tablet mv. ved at tage ift. skærmstørrelse - bliver brugt til responsive websider -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.tiny.cloud/1/jkzu8jwwcqe5jhv6qvqojegkrhyjq59kgtts7g0966ka00ix/tinymce/6/tinymce.min.js" referrerpolicy="origin">
-
     </script>
 
 </head>
 
 <!-- i <body> har man alt indhold på siden som brugeren kan se -->
 
-<body class="bg-Beige">
+<body class="bg-Beige mx-14">
+
     <div class="d-flex justify-content-center container p-5">
         <img class="w-50" src="img/dijlogonavbarb.png" alt="logo">
     </div>
@@ -127,16 +123,20 @@ if(!empty($_POST["data"])) {
                 <button class="rounded-5 bg-Gul text-Beige border-0 px-5 py-2 m-3">blog</button>
             </a>
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-end">
             <a href="edit.php">
                  <button class="rounded-5 bg-Gul text-Beige border-0 px-5 py-2 m-3">redigere</button>
             </a>
         </div>
+        <div class="d-flex justify-content-end container m-3" >
+            <a  href="logout.php" class="btn btn-danger">Log ud</a>
+        </div>
     </div>
+
 <form method="post" action="insert.php" enctype="multipart/form-data">
 
     <div class="row justify-content-center m-0">
-        <div class="bg-Grøn1 m-5 p-5 rounded-5">
+        <div class="bg-Grøn1 m-5 p-5 rounded-4">
             <div>
                 <h4 class="text-center m-4">
                     Ny Blog
@@ -157,8 +157,15 @@ if(!empty($_POST["data"])) {
             </div>
             <div class="col-12 col-md-5">
                 <div class="form-group m-2">
-                    <label for="blog Kategorier"><p class="m-0">Blog Kategorier</p></label>
-                    <input class="form-control border-0 rounded-0" type="text" name="data[blogKategorier]"  id="blogKategorier" placeholder="Blog Kategorier" value="">
+                    <label for="blog KategorierId"><p class="m-0">Blog Kategorier</p></label>
+                    <select name="data[blogKategorierId]" id="blogKategorierId">
+                        <option value="0">blogKategorier</option>
+                        <option value="1">SMUDGING</option>
+                        <option value="2">RØGELSESPINDE</option>
+                        <option value="3">KRYSTALLER</option>
+                        <option value="4">SALVIE</option>
+                        <option value="5">LIVSSTIL</option>
+                    </select>
                 </div>
             </div>
 
@@ -184,7 +191,7 @@ if(!empty($_POST["data"])) {
                 </div>
             </div>
         </div>
-    <div class="bg-Grøn1 m-5 p-5 rounded-5">
+    <div class="bg-Grøn1 m-5 p-5 rounded-4">
         <div>
             <h4 class="text-center m-4">
                 Blog SEO
@@ -212,7 +219,7 @@ if(!empty($_POST["data"])) {
         </div>
     </div>
 
-        <div class="bg-Grøn1 m-5 p-5 rounded-5">
+        <div class="bg-Grøn1 m-5 p-5 rounded-4">
             <div>
                 <h4 class="text-center m-4">
                     Blog product

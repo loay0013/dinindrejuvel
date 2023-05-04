@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -26,6 +27,16 @@
 <div class="container flex-row">
     <div class="container">
         <div class="blogs">
+            <div class="filter">
+                <select class="KategorierSearch d-flex flex-row container justify-content-center m-5 justify-content-around">
+                    <option value="0" class="rounded-2 bg-transparent border-3">ALLE POSTS</option>
+                    <option value="1" class="rounded-2 bg-transparent border-0" data-cat-id="1">SMUDGING</option>
+                    <option  value="2" class="rounded-2 bg-transparent border-0" data-cat-id="2">RØGELSESPINDE</option>
+                    <option value="3" class="rounded-2 bg-transparent border-0" data-cat-id="3">KRYSTALLER</option>
+                    <option value="4" class="rounded-2 bg-transparent border-0" data-cat-id="4">SALVIE</option>
+                    <option value="5" class="rounded-2 bg-transparent border-0" data-cat-id="5">LIVSSTIL</option>
+                </select>
+            </div>
             <div class="items">
             </div>
         </div>

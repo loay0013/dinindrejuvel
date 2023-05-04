@@ -65,32 +65,35 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
                         ?>
                     </p>
                 </div>
-                <div class="d-flex flex-md-row  flex-column">
+                <div class="d-flex flex-md-row flex-column container">
                     <div class="d-flex flex-column mb-5">
-                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede1;?>" alt="<?php echo $blog->productBillede1;?>">
+                        <img class="col-12 col-md-6" src="uploads/<?php echo $blog->productBillede1;?>" alt="<?php echo $blog->productBillede1;?>">
                         <p><?php echo $blog->productNavn1;?></p>
+                        <a class="text-decoration-none" href="<?php echo $blog->productLink1;?>">
                         <button class="rounded-5 bg-Gul text-Beige border-0 d-flex w-text mt-4 p-1 px-4">Gå til webshop
-                            <a href="<?php echo $blog->productLink1;?>"></a>
                             <img class="pt-1 ps-2" src="img/arrowup 2.svg"  alt="arrowup">
                         </button>
+                        </a>
                     </div>
 
                     <div class="d-flex flex-column mb-5">
-                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede2;?>" alt="<?php echo $blog->productBillede2;?>">
+                        <img class="col-12 col-md-6" src="uploads/<?php echo $blog->productBillede2;?>" alt="<?php echo $blog->productBillede2;?>">
                         <p><?php echo $blog->productNavn2;?></p>
+                        <a class="text-decoration-none" href="<?php echo $blog->productLink2;?>">
                         <button class="rounded-5 bg-Gul text-Beige border-0 d-flex w-text  mt-4 p-1 px-4">Gå til webshop
-                            <a href="<?php echo $blog->productLink2;?>"></a>
                             <img class="pt-1 ps-2" src="img/arrowup 2.svg"  alt="arrowup">
                         </button>
+                        </a>
                     </div>
 
                     <div class="d-flex flex-column mb-5">
-                        <img class="obj col-12 col-md-6" src="uploads/<?php echo $blog->productBillede3;?>" alt="<?php echo $blog->productBillede3;?>">
+                        <img class="col-12 col-md-6" src="uploads/<?php echo $blog->productBillede3;?>" alt="<?php echo $blog->productBillede3;?>">
                         <p><?php echo $blog->productNavn3;?></p>
+                        <a class="text-decoration-none" href="<?php echo $blog->productLink3;?>">
                         <button class="rounded-5 bg-Gul text-Beige border-0 d-flex w-text  mt-4 p-1 px-4">Gå til webshop
-                            <a href="<?php echo $blog->productLink3;?>"></a>
                             <img class="pt-1 ps-2" src="img/arrowup 2.svg"  alt="arrowup">
                         </button>
+                        </a>
                     </div>
                 </div>
             </div>
