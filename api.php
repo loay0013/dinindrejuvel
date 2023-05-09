@@ -28,7 +28,7 @@ if($data["password"]== "1717"){
     $bind=[];
 
 
-    if (!empty($data["nameSearch"])){
+    if (!empty($data["search"])){
         $sql ="AND blogOverskrift LIKE CONCAT('%',:blogOverskrift,'%')";
         $bind[":blogOverskrift"]=$data["blogOverskrift"];
     }
@@ -38,9 +38,9 @@ if($data["password"]== "1717"){
         $bind[":blogSeoTitel"] = $data["SeoTitelSearch"];
     }
 
-    if(!empty($data["KategorierSearch"])){
-        $sql .=" AND KategorierSearch  >= :KategorierSearch";
-        $bind[":KategorierSearch"]= $data["KategorierSearch"];
+    if(!empty($data["KategorierSearchId"])){
+        $sql .=" AND KategorierSearchId  >= :KategorierSearchId";
+        $bind[":KategorierSearchId"]= $data["KategorierSearchId"];
     }
 
     $blog = $db->sql($sql, $bind);

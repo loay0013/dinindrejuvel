@@ -29,7 +29,7 @@
         </div>
 
         <div class="d-lg-flex flex-row w-search d-none d-md-none">
-            <div class="filter">
+            <div class="search">
                 <div class="row">
                         <label for="search"></label>
                     <input type="search" id="search" class="form-control nameSearch text-center fs-5 bg-Beige rounded-5 border-0 " placeholder="Søg...">
