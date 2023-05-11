@@ -70,7 +70,7 @@ img {
 }
 
 .container-about {
-	width: 1186px;
+	width: 85%;
 	height: 352px;
 	background-color: #9DAD7E;
 }
@@ -136,6 +136,11 @@ img {
 nav a.active1{
 	border-bottom: 2px solid #FCF3E4;
 }
+.p-d{
+	position: relative;
+	bottom: 200px;
+	right: 10px;
+}
 
 @media  screen and (max-width: 1000px){
 	.wh-img{
@@ -155,6 +160,12 @@ nav a.active1{
 		height: auto;
 	}
 
+.img-flower1 {
+	height: 220px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
 	.my-md-6{
 		margin: 0;
 
@@ -163,5 +174,10 @@ nav a.active1{
 		border: #F2C6A5 solid 1px !important;
 		padding: 10px;
 		margin: 5px;
+	}
+	.p-d{
+		position: inherit ;
+		bottom: 0;
+		right: 0;
 	}
 }
