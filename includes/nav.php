@@ -1,7 +1,7 @@
-<nav class="navbar bg-Grøn1 navbar-expand-xl container-fluid p-0">
+<nav class="navbar bg-Grøn1 navbar-expand-xl container-fluid p-0 input-search">
     <div class="container-fluid d-flex  align-items-center p-0 container">
         <!--logo-->
-        <a class="navbar-brand border-0 bg-transparent col-6 col-lg-2 col-md-4" href="index.php">
+        <a class="navbar-brand border-0 bg-transparent col-6 col-lg-3 col-md-4" href="index.php">
             <img class="m-lg-3 ms-2" src="img/dijlogonavbarhvid.svg" alt="logo">
         </a>
 
@@ -13,22 +13,20 @@
         <div class="collapse navbar-collapse justify-content-center bg-Grøn1" id="navbarNav">
             <ul class="nav flex-column flex-xl-row align-items-center me-xl-5">
                 <li class="nav-item pb-2 m-md-2">
-                    <a class="nav-link" aria-current="page" href="index.php">Hjem</a>
+                    <a class="nav-link nav-link1" aria-current="page" href="index.php">Hjem</a>
                 </li>
                 <li class="nav-item pb-2 m-md-2">
-                    <a class="nav-link" href="Mission.php">Mission</a>
+                    <a class="nav-link nav-link1 active1" href="Mission.php">Mission</a>
                 </li>
                 <li class="nav-item pb-2 m-md-2">
-                    <a class="nav-link" href="blogoversigt.php">Blog</a>
-
+                    <a class="nav-link nav-link1" href="blogoversigt.php">Blog</a>
                 </li>
-
             </ul>
 
 
         </div>
 
-        <div class="d-lg-flex flex-row w-search d-none d-md-none">
+        <div class="d-lg-flex flex-row w-search d-none d-md-none order-md-1">
             <div class="search">
                 <div class="row">
                         <label for="search"></label>

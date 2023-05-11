@@ -91,6 +91,26 @@ img {
 .w-400{
 	width: 400px;
 }
+.active{
+	background-color: #252A34 !important;
+	color: white;
+	box-shadow: #1a1e21;
+}
+.blog-billede{
+	height: 350px;
+	width: 350px;
+	object-fit: contain;
+}
+.mission-billede{
+	height: 350px;
+	width: 350px;
+	object-fit: cover;
+}
+
+nav a.active1{
+	border-bottom: 2px solid #FCF3E4;
+}
+
 @media  screen and (max-width: 1000px){
 	.wh-img{
 		width: auto;
@@ -99,9 +119,13 @@ img {
 	}
 }
 
-
 @media  screen and (max-width: 768px) {
 	.h-footer{
 		height: 800px;
+	}
+	.border-active{
+		border: #F2C6A5 solid 1px !important;
+		padding: 10px;
+		margin: 5px;
 	}
 }

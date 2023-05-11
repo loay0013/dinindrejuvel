@@ -18,12 +18,10 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
     <!-- Sætter tegnsætning til utf-8 som bl.a. tillader danske bogstaver -->
     <meta charset="utf-8">
     <?php
-
     foreach ($blog as $blog){
     ?>
     <!-- Titel som ses oppe i browserens tab mv. -->
-    <title><?php
-        echo $blog->blogSeoTitel?></title>
+    <title><?php echo $blog->blogSeoTitel?></title>
 
     <!-- Metatags der fortæller at søgemaskiner er velkomne, hvem der udgiver siden og copyright information -->
     <meta name="robots" content="All">
@@ -56,7 +54,7 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
                         ?>
                     </h1>
                     <div class="d-flex mt-3 justify-content-center">
-                        <img class="w-50" src="uploads/<?php echo $blog->blogBillede;?>" alt="<?php echo $blog->blogSeoAlt;?>">
+                        <img class="blog-billede" src="uploads/<?php echo $blog->blogBillede;?>" alt="<?php echo $blog->blogSeoAlt;?>">
                     </div>
                 <div class="mt-5 mb-5">
                     <p>
@@ -107,7 +105,7 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
 
 <?php include "includes/footer.php"?>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="js/active.js"></script>
 
 </body>
 </html>
