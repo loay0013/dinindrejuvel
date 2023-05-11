@@ -62,6 +62,19 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+
+.about-section {
+	background-color: #FCF3E4;
+	width: auto;
+	height: 555px;
+}
+
+.container-about {
+	width: 1186px;
+	height: 352px;
+	background-color: #9DAD7E;
+}
+
 .nav-link{
 	color: #FCF3E4;
 	font-size: 16px;
@@ -91,6 +104,19 @@ img {
 .w-400{
 	width: 400px;
 }
+.img-bg{
+	background-image: url(../img/about.jpg);
+	background-size: cover;
+	box-shadow:5px 5px 80px rgba(0,0,0,0.3);
+	height:415px;
+	width: 285px;
+	display: flex;
+	align-items: center;
+}
+.my-md-6{
+	margin-top: 6rem;
+	margin-bottom: 6rem;
+}
 @media  screen and (max-width: 1000px){
 	.wh-img{
 		width: auto;
@@ -103,5 +129,13 @@ img {
 @media  screen and (max-width: 768px) {
 	.h-footer{
 		height: 800px;
+	}
+	.container-about {
+		width: auto;
+		height: auto;
+	}
+
+	.my-md-6{
+		margin: 0;
 	}
 }
