@@ -97,6 +97,7 @@ if(!empty($_POST["data"])) {
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
     <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
+    <link rel='icon' href='img/SoMeicone.png' type='image/x-icon' sizes="40x40" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">

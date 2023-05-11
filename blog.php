@@ -28,6 +28,7 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
     <meta name="description" content="<?php echo $blog->blogSeoDescription?>">
+    <link rel='icon' href='img/SoMeicone.png' type='image/x-icon' sizes="40x40" />
     <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -56,7 +57,7 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
                     <div class="d-flex mt-3 justify-content-center">
                         <img class="blog-billede" src="uploads/<?php echo $blog->blogBillede;?>" alt="<?php echo $blog->blogSeoAlt;?>">
                     </div>
-                <div class="mt-5 mb-5">
+                <div class="mt-5 mb-5 container">
                     <p>
                         <?php
                         echo $blog->blogTekst

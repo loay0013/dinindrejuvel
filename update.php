@@ -81,7 +81,7 @@ $blogs = $db->sql("SELECT * FROM blog WHERE BlogId = :BlogId", $bind);
     <meta name="copyright" content="Information om copyright">
 
     <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
-
+    <link rel='icon' href='img/SoMeicone.png' type='image/x-icon' sizes="40x40" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 

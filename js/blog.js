@@ -50,10 +50,10 @@ export default class blogs{
                        
           
                 <div class="rounded-bottom d-flex flex-column ">
-                     <h2 class="text-Blå2 mt-1 mx-4 ">${items.blogOverskrift}</h2> 
-                     <p class="text-Blå2 mt-2 mx-4">${items.blogDato}</p>
-                     <p class="text-Blå2 mt-5 mx-4">${items.blogKortTekst}</p>
-                     <button class="rounded-5 bg-Gul text-Beige border-0 d-flex w-text mx-4 mt-4 p-1 px-4">Læse mere
+                     <h2 class="text-Blå2 mt-3 mx-md-4 ">${items.blogOverskrift}</h2> 
+                     <p class="text-Blå2 mt-2 mx-md-4">${items.blogDato}</p>
+                     <p class="text-Blå2 mt-5 mx-md-4">${items.blogKortTekst}</p>
+                     <button class="rounded-5 bg-Gul text-Beige border-0 d-flex w-text mx-md-4 mt-4 p-1 px-4">Læse mere
                      <img class="pt-1 ps-2" src="img/arrowup 2.svg"  alt="arrowup">
                      </button>
                 </div>

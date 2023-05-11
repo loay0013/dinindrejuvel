@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
     <!-- Titel som ses oppe i browserens tab mv. -->
-    <title>Sigende titel</title>
+    <title> Mission | Din Indre Juvel </title>
 
     <!-- Metatags der fortæller at søgemaskiner er velkomne, hvem der udgiver siden og copyright information -->
     <meta name="robots" content="All">
@@ -20,7 +20,7 @@
     <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <link rel='icon' href='img/#' type='image/x-icon' sizes="40x40" />
+    <link rel='icon' href='img/SoMeicone.png' type='image/x-icon' sizes="40x40" />
 
     <!-- Sikrer den vises korrekt på mobil, tablet mv. ved at tage ift. skærmstørrelse - bliver brugt til responsive websider -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,8 +36,8 @@
     </h1>
 </div>
 <div class="container d-flex justify-content-center">
-    <img class="mission-billede rounded-5 " src="img/Mission-img.png" alt="">
-    <img class="d-none d-md-block mission-billede rounded-5" src="img/Mission2.png" alt="">
+    <img class="mission-billede rounded-4 " src="img/Mission-img.png" alt="">
+    <img class="d-none d-md-block mission-billede rounded-4" src="img/Mission2.png" alt="">
 </div>
 
 <div class="container text-center mt-5">

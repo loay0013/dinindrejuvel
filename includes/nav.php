@@ -1,4 +1,4 @@
-<nav class="navbar bg-Grøn1 navbar-expand-xl container-fluid p-0 input-search">
+<nav class="navbar bg-Grøn1 navbar-expand-lg container-fluid p-0 input-search">
     <div class="container-fluid d-flex  align-items-center p-0 container">
         <!--logo-->
         <a class="navbar-brand border-0 bg-transparent col-6 col-lg-3 col-md-4" href="index.php">
@@ -11,7 +11,7 @@
         </button>
         <!--link til navbar-->
         <div class="collapse navbar-collapse justify-content-center bg-Grøn1" id="navbarNav">
-            <ul class="nav flex-column flex-xl-row align-items-center me-xl-5">
+            <ul class="nav flex-column flex-lg-row align-items-center me-xl-5">
                 <li class="nav-item pb-2 m-md-2">
                     <a class="nav-link nav-link1" aria-current="page" href="index.php">Hjem</a>
                 </li>

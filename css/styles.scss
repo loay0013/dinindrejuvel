@@ -7,33 +7,35 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+	font-family: Miamo, sans-serif;
 	margin: 0;
 	padding: 0;
+	font-weight:normal ;
 }
 h1{
 	font-size: 36px;
 	color: #252A34;
-	font-weight: bold;
+
 }
 h2{
 	font-size: 28px;
 	color:#616B4B;
-	font-weight: bold;
+
 }
 h3{
 	font-size: 48px;
 	color: #D4BBB3;
-	font-weight: bold;
+
 }
 h4{
     font-size: 34px;
 	color: #252A34;
-	font-weight: bold;
+
 }
 h5{
 	font-size: 34px;
 	color: #FCF3E4;
-	font-weight: bold;
+
 }
 p{
 	font-size: 18px;

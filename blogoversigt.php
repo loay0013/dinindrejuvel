@@ -4,15 +4,15 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Blogoversigt</title>
+    <title>Blogoversigt | Din Indre Juvel</title>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
-    <meta name="description" content="">
+    <meta name="description" content="Få eksklusiv indsigt i verdenen af Spurtiul på vores blog, og  læs en masse spændende blogindlæg ">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <link rel='icon' href='img/#' type='image/x-icon' sizes="40x40" />
+    <link rel='icon' href='img/SoMeicone.png' type='image/x-icon' sizes="40x40" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -20,7 +20,7 @@
 <!--navbar-->
 <?php include "includes/nav.php"?>
 
-<h1 class="text-center p-5 mb-5 mt-5 ">
+<h1 class="container ps-5 mb-5 mt-5 p-md-5 ">
     Læs en masse spændende blogindlæg
 </h1>
 <!--container til produkter-->
