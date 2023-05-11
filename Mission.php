@@ -36,8 +36,8 @@
     </h1>
 </div>
 <div class="container d-flex justify-content-center">
-    <img class="h-50 " src="img/Mission-img.png" alt="">
-    <img class="d-none d-md-block h" src="img/Mission2.png" alt="">
+    <img class="mission-billede rounded-5 " src="img/Mission-img.png" alt="">
+    <img class="d-none d-md-block mission-billede rounded-5" src="img/Mission2.png" alt="">
 </div>
 
 <div class="container text-center mt-5">
@@ -89,6 +89,7 @@
 </div>
 <?php include "includes/footer.php"?>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/active.js"></script>
 
 </body>
 </html>

@@ -8,14 +8,24 @@ export default class blogs{
         this.rootElem = document.querySelector('.blogs');
         this.items = this.rootElem.querySelector('.items');
         this.filter = this.rootElem.querySelector('.filter');
-        this.KategorierSearchId=this.filter.querySelector('.KategorierSearchId');
+        this.search = this.rootElem.querySelector('.search')
+        this.filterBtns = this.filter.querySelectorAll('.KategorierSearchId button');
+        this.catId = '';
     }
 
     async init(){
 
-        this.KategorierSearchId.addEventListener('input',()=>{
+        this.filterBtns.forEach(btn => btn.addEventListener('click', () => {
+
+            this.filterBtns.forEach(btn => btn.classList.remove('active'));
+
+            btn.classList.add('active');
+
+            this.catId = btn.dataset.catId;
             this.render();
-        })
+        }));
+
+
 
         await this.render();
     }
@@ -48,7 +58,9 @@ export default class blogs{
                      </button>
                 </div>
             </div>
+            </div>
             </a>
+            
                                        
           `;
             row.appendChild(col);
@@ -61,11 +73,11 @@ export default class blogs{
 
 
     async getData(){
-        this.data.KategorierSearchId = this.KategorierSearchId.value;
+        this.data.catId = this.catId;
         const response = await fetch('api.php', {
             method:"POST",
             body: JSON.stringify(this.data)
         });
-        return  await response.json();
+        return await response.json();
     }
 }
