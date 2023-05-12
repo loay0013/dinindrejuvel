@@ -56,16 +56,16 @@
 
 
 
-<div>
+<div class="">
 	<div>
 		<h3>Seneste Post</h3>
 	</div>
-	<div>
+	<div class="">
         <?php
         require "settings/init.php";
         $blog = $db->sql("SELECT * FROM blog ORDER BY blogId DESC LIMIT 1");
         ?>
-		<div>
+		<div class="">
 			<?php foreach ($blog as $blog) { ?>
 			<div class="col-md-4 col-12">
 				<a  href="blog.php?BlogId=${items.BlogId}" class="text-decoration-none text-dark d-md-flex ">
