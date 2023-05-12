@@ -141,7 +141,26 @@ nav a.active1{
 	bottom: 200px;
 	right: 10px;
 }
-
+.wh-img{
+	width: 230px;
+	height: 230px;
+	object-fit: cover;
+}
+.wh-img1{
+	width: 650px;
+	height: 650px;
+	object-fit: cover;
+}
+.mt-m{
+	margin-top: -150px;
+}
+.p-d1{
+	position: relative;
+	top: 100px;
+}
+.z-index{
+	z-index: 1;
+}
 @media  screen and (max-width: 1000px){
 	.wh-img{
 		width: auto;
@@ -179,5 +198,15 @@ nav a.active1{
 		position: inherit ;
 		bottom: 0;
 		right: 0;
+	}
+	.wh-img{
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	.wh-img1{
+		width: 100%;
+		height: auto;
+		object-fit: cover;
 	}
 }
