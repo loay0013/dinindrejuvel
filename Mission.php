@@ -20,6 +20,7 @@
     <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <!--icon til fane-->
     <link rel='icon' href='img/SoMeicone.png' type='image/x-icon' sizes="40x40" />
 
     <!-- Sikrer den vises korrekt på mobil, tablet mv. ved at tage ift. skærmstørrelse - bliver brugt til responsive websider -->
@@ -28,18 +29,20 @@
 
 <!-- i <body> har man alt indhold på siden som brugeren kan se -->
 <body class="bg-Beige">
+<!--navbar-->
 <?php include "includes/nav.php"?>
-
+<!--tekst-->
 <div class=" m-5 text-center">
     <h1>
         Vores mission er egentlig ret simpel
     </h1>
 </div>
+<!--img-->
 <div class="container d-flex justify-content-center">
     <img class="mission-billede rounded-4 " src="img/Mission-img.png" alt="">
     <img class="d-none d-md-block mission-billede rounded-4" src="img/Mission2.png" alt="">
 </div>
-
+<!--tekst-->
 <div class="container text-center mt-5">
     <h4>
         Vores mission er at dele ud af gratis selvhjælp, så vi alle kan løftes
@@ -48,9 +51,10 @@
         VI ØNSKER AT SKABE:
     </p>
 </div>
-
+<!--4 boxer-->
 <div class="d-flex justify-content-center container">
 <div class="d-flex justify-content-center flex-md-row flex-column mb-5 col-12 col-md-12  gap-4">
+    <!--box1-->
     <div class="bg-Rosa2 card d-flex flex-column  py-5">
         <h5 class="text-center mt-2 text-Blå2">
             BALANCE
@@ -59,6 +63,7 @@
             At skabe balance mellem arbejde og privatliv, gå-på-mod og tilbagetrækning, socialt samvær og tiltrængt egentid
         </p>
     </div>
+    <!--box2-->
 <div class="flex-column align-items-center col-12 col-md-4 d-flex">
     <div class="bg-Blå2 card d-flex flex-column mb-4 py-5">
         <h5 class="text-center mt-2 text-Rosa2">
@@ -68,6 +73,7 @@
             At skabe evnen til, at konfrontere indre konflikter og usikkerheder.
         </p>
     </div>
+    <!--box3-->
     <div class="bg-Blå2 card d-flex flex-column  py-5">
         <h5 class="text-center mt-2 text-Rosa2">
             FRED
@@ -77,6 +83,7 @@
         </p>
     </div>
 </div>
+    <!--box4-->
     <div class="bg-Rosa2 card d-flex flex-column col-12 col-md-4  py-5">
         <h5 class="text-center mt-2 text-Blå2">
             HARMONI
@@ -87,9 +94,9 @@
     </div>
 </div>
 </div>
+<!--footer-->
 <?php include "includes/footer.php"?>
+<!--bootstrap js-->
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/active.js"></script>
-
 </body>
 </html>

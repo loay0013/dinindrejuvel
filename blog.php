@@ -40,7 +40,9 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
 <body>
 
 <!-- Her skal sidens indhold ligge -->
+<!--navbar-->
 <?php include "includes/nav.php"?>
+<!--enkelt blog side-->
     <div class="bg-Beige">
             <div class="d-flex flex-column align-items-center container ">
                     <p class="mt-5">

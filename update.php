@@ -95,10 +95,11 @@ $blogs = $db->sql("SELECT * FROM blog WHERE BlogId = :BlogId", $bind);
 
 <!-- i <body> har man alt indhold på siden som brugeren kan se -->
 <body class="bg-Beige mx-14">
+<!--logo-->
 <div class="d-flex justify-content-center container p-5">
     <img class="w-50" src="img/dijlogonavbarb.png" alt="logo">
 </div>
-
+<!--btn-->
 <div class="d-flex justify-content-end container ">
     <div class="d-flex justify-content-center">
         <a href="blogoversigt.php">
@@ -115,12 +116,13 @@ $blogs = $db->sql("SELECT * FROM blog WHERE BlogId = :BlogId", $bind);
         <a  href="logout.php" class="btn btn-danger">Log ud</a>
     </div>
 </div>
-
+<!--Update form-->
 <form method="post" action="update.php?id=<?php echo $_GET['id'];?>" enctype="multipart/form-data">
 
     <div class="row justify-content-center m-0">
        <div class="bg-Grøn1 m-5 p-5 rounded-4">
-            <div>
+           <!--Update blog-->
+           <div>
                 <h4 class="text-center m-4">
                     Ny Blog
                 </h4>
@@ -174,6 +176,7 @@ $blogs = $db->sql("SELECT * FROM blog WHERE BlogId = :BlogId", $bind);
                 </div>
             </div>
        </div>
+        <!--Update seo-->
         <div class="bg-Grøn1 m-5 p-5 rounded-4">
             <div>
                 <h4 class="text-center m-4">
@@ -201,6 +204,7 @@ $blogs = $db->sql("SELECT * FROM blog WHERE BlogId = :BlogId", $bind);
                 </div>
             </div>
         </div>
+        <!--Update product-->
         <div class="bg-Grøn1 m-5 p-5 rounded-4">
             <div>
                 <h4 class="text-center m-4">

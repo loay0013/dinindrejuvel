@@ -19,15 +19,16 @@
 <body class="bg-Beige">
 <!--navbar-->
 <?php include "includes/nav.php"?>
-
+<!--tekst-->
 <h1 class="container ps-5 mb-5 mt-5 p-md-5 ">
     Læs en masse spændende blogindlæg
 </h1>
-<!--container til produkter-->
+<!--container til blog-->
 <div class="container flex-row">
     <div class="container">
         <div class="blogs">
             <div class="filter mb-5">
+                <!--filter-->
                 <div class="KategorierSearchId d-flex flex-md-row flex-column container justify-content-center m-md-5 justify-content-around">
                     <div class="col-12 col-md-4 flex-row justify-content-md-around justify-content-start d-flex ">
                     <button value="" class="rounded-2  bg-transparent border-0 active border-active">ALLE POSTS</button>
@@ -56,6 +57,5 @@
     const blog = new blogs();
     blog.init();
 </script>
-<script src="js/active.js"></script>
 </body>
 </html>

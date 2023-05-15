@@ -57,10 +57,11 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =BlogId;");
 <!-- i <body> har man alt indhold på siden som brugeren kan se -->
 <body class="bg-Beige mx-14">
 <!-- Her skal sidens indhold ligge -->
+<!--logo-->
 <div class="d-flex justify-content-center container p-5">
     <img class="w-50" src="img/dijlogonavbarb.png" alt="logo">
 </div>
-
+<!--btn til blog og til log ud og til ny blog-->
 <div class="d-flex justify-content-end  mx-14 ">
     <div class="d-flex justify-content-center">
         <a href="blogoversigt.php">
@@ -80,10 +81,10 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =BlogId;");
     <?php
         foreach ($blog as $blogs){
     ?>
+                <!--bolg oversigt-->
 <div class="d-flex justify-content-center flex-column">
     <div class="bg-Grøn1 rounded-4 col-6 p-3 container mt-5">
         <div class="row gx-0 d-flex flex-column flex-md-row">
-            <!--produktNavn og produktbeskrivelse-->
             <div class="col-12 d-flex align-items-center">
                 <div class="mx-4 mx-md-5 mt-5">
                     <div>
@@ -103,6 +104,7 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =BlogId;");
                             ?>
                         </p>
                     </div>
+                    <!--btn til slet og rediger blog-->
                         <div class="d-flex">
                             <div>
                                 <button class="rounded-5 bg-Gul  border-0 px-5 py-2 m-3 text-Beige text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal">
@@ -122,7 +124,7 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =BlogId;");
 </div>
 
 
-
+<!--modal til slet blog-->
 <div class="modal" tabindex="-1" id="deleteModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -139,16 +141,8 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =BlogId;");
                 <?php
                       }
                     ?>
+<!--bootstrap js-->
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    const deleteModalElem = document.querySelector('#deleteModal');
-    const modalConfirm = deleteModalElem.querySelector('.modalConfirm');
-    const deleteModal = new bootstrap.Modal(deleteModalElem);
 
-    document.querySelectorAll('.deleteBtn').forEach(deleteBtn => deleteBtn.addEventListener('click', () => {
-        modalConfirm.href = deleteBtn.dataset.url;
-        deleteModal.show();
-    }));
-</script>
 </body>
 </html>

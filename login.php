@@ -100,10 +100,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body class="bg-Beige">
+<!--logo-->
 <div class="d-flex justify-content-center container p-5">
     <img class="w-50" src="img/dijlogonavbarb.png" alt="logo">
 </div>
-
+<!--text-->
 <div class="wrapper d-flex flex-column col-12 container align-items-center">
     <h2 class="m-3">Login</h2>
     <p class="m-3">Udfyld venligst dine oplysninger for at logge ind.</p>
@@ -113,7 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo '<div class="alert alert-danger">' . $login_err . '</div>';
     }
     ?>
-
+<!--form til login-->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group m-3">
             <label>Brugernavn</label>

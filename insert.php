@@ -113,11 +113,11 @@ if(!empty($_POST["data"])) {
 <!-- i <body> har man alt indhold på siden som brugeren kan se -->
 
 <body class="bg-Beige mx-14">
-
+<!--logo-->
     <div class="d-flex justify-content-center container p-5">
         <img class="w-50" src="img/dijlogonavbarb.png" alt="logo">
     </div>
-
+<!--btn-->
     <div class="d-flex justify-content-end container ">
         <div class="d-flex justify-content-center">
             <a href="blogoversigt.php">
@@ -133,11 +133,12 @@ if(!empty($_POST["data"])) {
             <a  href="logout.php" class="btn btn-danger">Log ud</a>
         </div>
     </div>
-
+<!--insert form-->
 <form method="post" action="insert.php" enctype="multipart/form-data">
 
     <div class="row justify-content-center m-0">
         <div class="bg-Grøn1 m-5 p-5 rounded-4">
+            <!--blog insert-->
             <div>
                 <h4 class="text-center m-4">
                     Ny Blog
@@ -192,6 +193,7 @@ if(!empty($_POST["data"])) {
                 </div>
             </div>
         </div>
+        <!--Seo insert-->
     <div class="bg-Grøn1 m-5 p-5 rounded-4">
         <div>
             <h4 class="text-center m-4">
@@ -219,7 +221,7 @@ if(!empty($_POST["data"])) {
             </div>
         </div>
     </div>
-
+<!--product insert-->
         <div class="bg-Grøn1 m-5 p-5 rounded-4">
             <div>
                 <h4 class="text-center m-4">

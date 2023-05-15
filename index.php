@@ -1,16 +1,10 @@
-<?php
-require "settings/init.php";
-$bind =[":BlogId"=> $_GET["BlogId"]];
-$blog = $db->sql("SELECT * FROM blog ORDER BY blogId DESC LIMIT 5", $bind);
-?>
-
 
 <!DOCTYPE html>
 <html lang="da">
 <head>
 	<meta charset="utf-8">
 
-	<title>Sigende titel</title>
+	<title> Hjem | Din Indre Juvel </title>
 
 	<meta name="robots" content="All">
 	<meta name="author" content="Udgiver">
@@ -67,48 +61,7 @@ $blog = $db->sql("SELECT * FROM blog ORDER BY blogId DESC LIMIT 5", $bind);
 	<div>
 		<h3 class="mb-4">Seneste Post</h3>
 	</div>
-	<div>
-        <?php
-        require "settings/init.php";
-        $blog = $db->sql("SELECT * FROM blog ORDER BY blogId DESC LIMIT 1");
-        ?>
-		<div>
-			<?php foreach ($blog as $blog) { ?>
-			<div class="col-md-4 col-12">
-				<a  href="blog.php?BlogId=${items.BlogId}" class="text-decoration-none text-dark d-md-flex ">
-					<div class="">
-						<img src="uploads/<?php echo $blog->blogBillede;?>" alt="<?php echo $blog->blogSeoAlt;?>">
-						<div class="card-body">
-							<h4 class="card-title"><?php echo $blog->blogOverskrift ?></h4>
-						</div>
-					</div>
-				</a>
-			</div>
-			<?php } ?>
-		</div>
-	</div>
-    <div>
-    <?php
-       $blog = $db->sql("SELECT * FROM blog ORDER BY blogId DESC LIMIT 4 OFFSET 1");
-    ?>
-        <div>
-            <?php foreach ($blog as $blog) { ?>
-                <div class="col-md-4 col-12">
-                    <div>
-                    <a  href="blog.php?BlogId=${items.BlogId}" class="text-decoration-none text-dark d-md-flex ">
-                        <div class="">
-                            <img src="uploads/<?php echo $blog->blogBillede;?>" alt="<?php echo $blog->blogSeoAlt;?>">
-                            <div class="card-body">
-                                <h4 class="card-title"><?php echo $blog->blogOverskrift ?></h4>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                </div>
-            <?php } ?>
-        </div>
-    </div>
-    </div>
+
 	<div class="">
         <?php
         require "settings/init.php";
