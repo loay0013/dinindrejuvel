@@ -43,7 +43,7 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
 <!--navbar-->
 <?php include "includes/nav.php"?>
 <!--enkelt blog side-->
-    <div class="bg-Beige">
+    <section class="bg-Beige">
             <div class="d-flex flex-column align-items-center container ">
                     <p class="mt-5">
                         <?php
@@ -98,7 +98,7 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
 
 <?php
@@ -108,7 +108,6 @@ $blog = $db->sql("SELECT * FROM blog WHERE BlogId =:BlogId;", $bind);
 
 <?php include "includes/footer.php"?>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/active.js"></script>
 
 </body>
 </html>

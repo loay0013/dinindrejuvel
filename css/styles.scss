@@ -135,7 +135,6 @@ img {
 	object-fit: cover;
 }
 
-
 .p-d{
 	position: relative;
 	bottom: 200px;
@@ -160,6 +159,10 @@ img {
 }
 .z-index{
 	z-index: 1;
+}
+.underskrift{
+	font-family: Miamo Script , sans-serif;
+	font-size: 40px;
 }
 @media  screen and (max-width: 1000px){
 	.wh-img{

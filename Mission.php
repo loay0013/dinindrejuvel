@@ -38,10 +38,10 @@
     </h1>
 </div>
 <!--img-->
-<div class="container d-flex justify-content-center">
-    <img class="mission-billede rounded-4 " src="img/Mission-img.png" alt="">
-    <img class="d-none d-md-block mission-billede rounded-4" src="img/Mission2.png" alt="">
-</div>
+<section class="container d-flex justify-content-center">
+    <img class="mission-billede rounded-4 " src="img/Mission-img.png" alt="mission billede">
+    <img class="d-none d-md-block mission-billede rounded-4" src="img/Mission2.png" alt="mission billede">
+</section>
 <!--tekst-->
 <div class="container text-center mt-5">
     <h4>
@@ -52,7 +52,7 @@
     </p>
 </div>
 <!--4 boxer-->
-<div class="d-flex justify-content-center container">
+<section class="d-flex justify-content-center container">
 <div class="d-flex justify-content-center flex-md-row flex-column mb-5 col-12 col-md-12  gap-4">
     <!--box1-->
     <div class="bg-Rosa2 card d-flex flex-column  py-5">
@@ -93,7 +93,13 @@
         </p>
     </div>
 </div>
-</div>
+</section>
+<!--underskrift-->
+<section class="d-flex flex-column container justify-content-start">
+    <p class="underskrift p-5 pb-0">Stine B. Hajjo</p>
+    <p class="p-5"> Stine Brooklyn Hajjo</p>
+
+</section>
 <!--footer-->
 <?php include "includes/footer.php"?>
 <!--bootstrap js-->

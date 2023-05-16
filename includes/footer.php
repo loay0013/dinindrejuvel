@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-md-center flex-md-row align-items-center p-0 flex-column container ">
     <div class="col-md-5 col-12 mb-5 mt-4">
         <a href="index.php" class="d-flex align-items-center mb-3 link-dark text-decoration-none m-3 mx-5">
-            <img src="img/dijlogofooterhvid.svg" height="500px" width="300px">
+            <img src="img/dijlogofooterhvid.svg" height="500px" width="300px" alt="logo din indre juvel">
         </a>
     </div>
 
