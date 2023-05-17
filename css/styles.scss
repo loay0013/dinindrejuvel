@@ -107,7 +107,7 @@ img {
 	width: 400px;
 }
 .img-bg{
-	background-image: url(../img/about.jpg);
+	background-image: url(../img/about.webp);
 	background-size: cover;
 	box-shadow:5px 5px 80px rgba(0,0,0,0.3);
 	height:415px;
@@ -141,13 +141,18 @@ img {
 	right: 10px;
 }
 .wh-img{
-	width: 230px;
-	height: 230px;
+	width: 400px;
+	height: 200px;
 	object-fit: cover;
 }
 .wh-img1{
 	width: 650px;
 	height: 650px;
+	object-fit: cover;
+}
+.wh-img3{
+	width: 200px;
+	height: 200px;
 	object-fit: cover;
 }
 .mt-m{
@@ -164,6 +169,23 @@ img {
 	font-family: Miamo Script , sans-serif;
 	font-size: 40px;
 }
+.hero1{
+	background-image: url(../img/pexels-cottonbro-studio-3737576.webp);
+	background-size: cover;
+	height: 500px;
+	width: 100%;
+}
+.hero2{
+	background-image: url(../img/pexels-cup-of-couple-6963132.webp);
+	height: 500px;
+	width: 100%;
+	background-size: cover;
+}
+.box-hero{
+	position: relative;
+	top:65px;
+}
+
 @media  screen and (max-width: 1000px){
 	.wh-img{
 		width: auto;
@@ -185,7 +207,7 @@ img {
 .img-flower1 {
 	height: 220px;
 	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-bottom: 200px;
 }
 
 	.my-md-6{
@@ -211,5 +233,25 @@ img {
 		width: 100%;
 		height: auto;
 		object-fit: cover;
+	}
+	.wh-img3{
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	.hero2{
+		height: 250px;
+	}
+	.hero1{
+	height: 250px;
+	}
+	.box{
+		width: 90%;
+	}
+	.grøn-box{
+		margin-top: 15rem !important;
+	}
+	.p-d1{
+		top: 420px;
 	}
 }

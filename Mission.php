@@ -16,7 +16,8 @@
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
-
+    <meta name="description" content="Oplev en dybere forbindelse til dig selv og det guddommelige gennem vores missionsside om spiritualitet.
+    Få inspiration og vejledning til at udforske din åndelighed og finde indre ro og harmoni.">
     <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
