@@ -40,8 +40,8 @@
 </div>
 <!--img-->
 <section class="container d-flex justify-content-center">
-    <img class="mission-billede rounded-4 " src="img/Mission-img.png" alt="mission billede">
-    <img class="d-none d-md-block mission-billede rounded-4" src="img/Mission2.png" alt="mission billede">
+    <img class="mission-billede rounded-4 " src="img/Mission-img.webp" alt="mission billede">
+    <img class="d-none d-md-block mission-billede rounded-4" src="img/Mission2.webp" alt="mission billede">
 </section>
 <!--tekst-->
 <div class="container text-center mt-5">
